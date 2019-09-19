@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/icon_home"
+            android:title="@string/menu_home"
+            />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/icon_account"
+            android:title="@string/menu_account" />
+        <item
+            android:id="@+id/nav_member"
+            android:icon="@drawable/icon_member"
+            android:title="@string/menu_member" />
+        <item
+            android:id="@+id/nav_election"
+            android:icon="@drawable/icon_election"
+            android:title="@string/menu_election" />
+        <item
+            android:id="@+id/nav_document"
+            android:icon="@drawable/icon_document"
+            android:title="@string/menu_document" />
+        <item
+            android:id="@+id/nav_resource"
+            android:icon="@drawable/icon_resource"
+            android:title="@string/menu_resource" />
+        <item
+            android:id="@+id/nav_building"
+            android:icon="@drawable/icon_building"
+            android:title="@string/menu_buiding" />
+
+        <item
+            android:id="@+id/nav_visitor"
+            android:icon="@drawable/icon_visitor"
+            android:title="@string/menu_visitor" />
+
+
+        <item
+            android:id="@+id/nav_event"
+            android:icon="@drawable/icon_event"
+            android:title="@string/menu_event" />
+
+        <item
+            android:id="@+id/nav_complain"
+            android:icon="@drawable/icon_complain"
+            android:title="@string/menu_complain" />
+
+        <item
+            android:id="@+id/nav_notice"
+            android:icon="@drawable/icon_notice"
+            android:title="@string/menu_notice" />
+    </group>
+
+   <!-- <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share1"
+                android:icon="@drawable/icon_document"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_send1"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_send" />
+        </menu>
+    </item>-->
+
+</menu>

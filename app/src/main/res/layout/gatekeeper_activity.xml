@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+style="@style/loginParent"
+tools:context="com.appsnipp.loginsamples.LoginActivity">
+<ScrollView
+    style="@style/parent">
+
+    <RelativeLayout
+        style="@style/parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:weightSum="12">
+
+            <LinearLayout
+                style="@style/parent"
+                android:background="@drawable/login_shape_bk"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+                <ImageView
+                    style="@style/parent"
+                    android:background="@drawable/ic_login_bk"
+                    android:contentDescription="login background" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/visitor_icon"
+                android:elevation="1dp"
+
+
+                app:civ_border_overlay="true"
+                />
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo"
+            android:elevation="0.5dp"
+
+
+            />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+
+
+            <!--<TextView-->
+                <!--style="@style/headerText"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="App Snipp"-->
+                <!--android:layout_marginTop="40dp"/>-->
+            <include
+
+                layout="@layout/gatekeeper_form"/>
+
+
+        </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+</ScrollView>
+
+</RelativeLayout>
+
+

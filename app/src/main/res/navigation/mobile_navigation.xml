@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.account.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/nav_member"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.members.MembersFragment"
+        android:label="@string/menu_member"
+        tools:layout="@layout/fragment_member" />
+
+    <fragment
+        android:id="@+id/nav_election"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.electionandpoll.ElectionFragment"
+        android:label="@string/menu_election"
+        tools:layout="@layout/fragment_election" />
+
+    <fragment
+        android:id="@+id/nav_document"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.document.DocumentFragment"
+        android:label="@string/menu_document"
+        tools:layout="@layout/fragment_document" />
+
+    <fragment
+        android:id="@+id/nav_resource"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.resource.ResourceFragment"
+        android:label="@string/menu_resource"
+        tools:layout="@layout/fragment_resources" />
+    <fragment
+        android:id="@+id/nav_building"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment"
+        android:label="@string/menu_buiding"
+        tools:layout="@layout/fragment_buildingdetails" />
+
+    <fragment
+        android:id="@+id/nav_visitor"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.visitor.VisitorFragment"
+        android:label="@string/menu_visitor"
+        tools:layout="@layout/fragment_visitor" />
+    <fragment
+        android:id="@+id/nav_event"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.event.EventFragment"
+        android:label="@string/menu_event"
+        tools:layout="@layout/fragment_event" />
+    <fragment
+        android:id="@+id/nav_notice"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment"
+        android:label="@string/menu_notice"
+        tools:layout="@layout/fragment_notice" />
+    <fragment
+        android:id="@+id/nav_complain"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment"
+        android:label="@string/menu_complain"
+        tools:layout="@layout/fragment_complain" />
+
+</navigation>

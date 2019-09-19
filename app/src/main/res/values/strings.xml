@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Login Sample</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email*</string>
+    <string name="login_password_hint">Password*</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="title_activity_navigation_">Navigation_Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Kaushik Mokariya</string>
+    <string name="nav_header_subtitle">mokariyakaushik@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_account">Account</string>
+    <string name="menu_member">Members</string>
+
+    <string name="menu_election">Election/Poll</string>
+    <string name="menu_document">Document</string>
+    <string name="menu_resource">Resource</string>
+    <string name="menu_buiding">Building Details</string>
+    <string name="menu_visitor">Visitor Details</string>
+    <string name="menu_event">Event</string>
+    <string name="menu_notice">NoticeBoard</string>
+    <string name="menu_complain">Complain</string>
+    <string-array name="Roles_array">
+        <item><b>Role</b></item>
+        <item>Member</item>
+        <item>Secretary</item>
+        <item>Gatekeeper</item>
+
+
+    </string-array>
+    <string-array name="House_spinner">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+    </string-array>
+    <string-array name="House_Number_spinner">
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+    </string-array>
+</resources>
