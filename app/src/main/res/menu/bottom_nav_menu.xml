@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+
+    <item
+        android:id="@+id/navB_menu"
+        android:icon="@drawable/icon_menu"
+        android:title="Menu" />
+    <item
+        android:id="@+id/navB_building"
+        android:icon="@drawable/icon_building_black"
+        android:title="Building Details" />
+    <item
+        android:id="@+id/navB_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navB_notice"
+        android:icon="@drawable/icon_notice_black"
+        android:title="NoticeBoard" />
+
+    <item
+        android:id="@+id/navB_profile"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="Profile" />
+
+</menu>

@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -28,6 +29,7 @@ dependencies {
     implementation 'android.arch.navigation:navigation-ui:1.0.0'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.android.support:support-v4:'
+    implementation 'com.android.support:support-vector-drawable:'
     testImplementation 'junit:junit:4.12'
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
