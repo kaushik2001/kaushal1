@@ -10,6 +10,27 @@
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/navB_home"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/navB_building"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment"
+        android:label="@string/menu_buiding"
+        tools:layout="@layout/fragment_buildingdetails" />
+    <fragment
+        android:id="@+id/navB_notice"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment"
+        android:label="@string/menu_notice"
+        tools:layout="@layout/fragment_notice" />
+
+    <fragment
+        android:id="@+id/navB_profile"
+        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_profile"
