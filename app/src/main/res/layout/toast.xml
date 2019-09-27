@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/error"/>
+        android:src="@drawable/error" />
     <TextView
         android:layout_marginLeft="@dimen/_10sdp"
         android:id="@+id/toasttext"

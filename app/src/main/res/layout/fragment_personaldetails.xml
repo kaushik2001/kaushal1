@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".profile.personaldetails">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile Details"
+        android:textColor="@color/whiteTextColor"
+        android:gravity="center_vertical"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="@dimen/_1sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:background="@drawable/title"
+        android:drawableRight="@drawable/icon_edit" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:hint="First Name"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:hint="Last Name"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:hint="Email"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/signup_text_margin_top"
+        app:counterMaxLength="10"
+        app:counterEnabled="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mobileno"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:hint="Mobile Number*"/>
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/loginButton"
+        android:background="@drawable/button_gatekeeper"
+        android:text="Save"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/loginViewsMargin"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Family Members"
+        android:textColor="@color/whiteTextColor"
+        android:gravity="center_vertical"
+        android:textSize="25sp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_1sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:background="@drawable/title"
+        android:drawableRight="@drawable/icon_addcircle" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Emergency Number"
+        android:textColor="@color/whiteTextColor"
+        android:gravity="center_vertical"
+        android:textSize="25sp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_1sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:background="@drawable/title"
+        android:drawableRight="@drawable/icon_addcircle" />
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

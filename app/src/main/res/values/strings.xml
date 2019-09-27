@@ -24,6 +24,11 @@
     <string name="menu_event">Event</string>
     <string name="menu_notice">NoticeBoard</string>
     <string name="menu_complain">Complain</string>
+    <string name="title_activity_bottom__navigation_">Bottom_Navigation_Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="Roles_array">
         <item><b>Role</b></item>
         <item>Member</item>
@@ -38,14 +43,12 @@
         <item>C</item>
         <item>D</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="House_Number_spinner">
         <item>101</item>
         <item>102</item>
         <item>103</item>
         <item>104</item>
     </string-array>
-    <string name="title_activity_bottom__navigation_">Bottom_Navigation_Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 </resources>

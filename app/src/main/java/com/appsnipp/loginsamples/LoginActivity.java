@@ -35,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         no=(EditText) findViewById(R.id.mono);
         pass=(EditText) findViewById(R.id.password);
+        no.setText("1111111111");
+        pass.setText("aaa");
 
     }
 
@@ -54,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         if (s2.isEmpty()){
             pass.setError("Enter Pssword");
         }
-        if(s2.equals("kaushik") && s1.equals("7990930587")) {
+        if(s2.equals("aaa") && s1.equals("1111111111")) {
             LayoutInflater li = getLayoutInflater();
             View layout = li.inflate(R.layout.toast,(ViewGroup) findViewById(R.id.toast));
             Toast t=new Toast(getApplicationContext());
