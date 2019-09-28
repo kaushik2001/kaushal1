@@ -22,11 +22,11 @@ public class NoticeBoardFragment extends Fragment {
         noticeBoardViewModel =
                 ViewModelProviders.of(this).get(NoticeBoardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notice, container, false);
-        final TextView textView = root.findViewById(R.id.text_notice);
+//        final TextView textView = root.findViewById(R.id.text_notice);
         noticeBoardViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+  //              textView.setText(s);
             }
         });
         return root;

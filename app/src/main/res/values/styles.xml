@@ -66,13 +66,13 @@
     <!--onboarding designs-->
 
     <style name="Adreess_text_head">
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">#0947E8</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
 
     </style>
 
     <style name="Adreess_text_contain">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#FF000000</item>
 
     </style>
