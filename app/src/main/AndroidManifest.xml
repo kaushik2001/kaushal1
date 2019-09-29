@@ -13,6 +13,7 @@
         <activity
             android:name=".Navigation_Profile.Navigation_Activity"
             android:label="@string/title_activity_navigation_"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity android:name=".registration.Forgotpassword_form" />
         <activity android:name=".complain.complainadd" />

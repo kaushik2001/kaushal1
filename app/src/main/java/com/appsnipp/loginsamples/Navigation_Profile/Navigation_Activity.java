@@ -129,7 +129,7 @@ public class Navigation_Activity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_account, R.id.nav_member,
                 R.id.nav_election, R.id.nav_document, R.id.nav_resource,R.id.nav_profile,
-                R.id.nav_building,R.id.nav_complain,R.id.navB_home,R.id.navB_menu,R.id.navB_notice,
+                R.id.nav_building,R.id.nav_complain,R.id.navB_home,R.id.navB_notice,
                 R.id.navB_building,R.id.navB_profile,
                 R.id.nav_event,R.id.nav_notice,R.id.nav_visitor)
                 .setDrawerLayout(drawer)

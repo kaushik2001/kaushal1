@@ -3,17 +3,14 @@
    >
 
     <item
-        android:id="@+id/navB_menu"
-        android:icon="@drawable/icon_menu"
-        android:title="Menu" />
+        android:id="@+id/navB_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
     <item
         android:id="@+id/navB_building"
         android:icon="@drawable/icon_building_black"
         android:title="Building Details" />
-    <item
-        android:id="@+id/navB_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Home" />
+
 
     <item
         android:id="@+id/navB_notice"

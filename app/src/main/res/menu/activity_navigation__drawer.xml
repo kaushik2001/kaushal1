@@ -29,10 +29,7 @@
             android:id="@+id/nav_resource"
             android:icon="@drawable/icon_resource"
             android:title="@string/menu_resource" />
-        <item
-            android:id="@+id/nav_building"
-            android:icon="@drawable/icon_building"
-            android:title="@string/menu_buiding" />
+
 
         <item
             android:id="@+id/nav_visitor"
@@ -50,15 +47,7 @@
             android:icon="@drawable/icon_complain"
             android:title="@string/menu_complain" />
 
-        <item
-            android:id="@+id/nav_notice"
-            android:icon="@drawable/icon_notice"
-            android:title="@string/menu_notice" />
 
-        <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/icon_notice"
-            android:title="Profile" />
     </group>
 
    <!-- <item android:title="Communicate">
