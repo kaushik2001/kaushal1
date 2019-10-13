@@ -30,11 +30,12 @@
             app:civ_border_width="2dp"
             app:civ_border_color="#00a5ff"/>
         <Button
+            android:id="@+id/photo"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/login_button_bk"
-
+android:onClick="photoupload"
             android:text="Choose Image"
             android:textStyle="bold"
 

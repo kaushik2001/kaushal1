@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/whiteTextColor"
+    tools:targetApi="lollipop"
+    tools:ignore="NewApi">
+    <item>
+        <shape android:shape="rectangle" >
+            <stroke android:color="@color/whiteTextColor"/>
+            <corners
+                android:radius="@dimen/_30sdp"
+                />
+            <gradient
+                android:angle="45"
+                android:centerX="35%"
+                android:startColor="#408bff"
+                android:endColor="#79EBFD"
+                android:type="linear"
+                />
+            <size
+                android:width="@dimen/_156sdp"
+                android:height="@dimen/_50sdp"
+                />
+        </shape>
+    </item>
+
+</ripple>
+    <!--<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >-->
+    <!--    <corners-->
+    <!--        android:radius="@dimen/_30sdp"-->
+    <!--        />-->
+    <!--    <gradient-->
+    <!--        android:angle="45"-->
+    <!--        android:centerX="35%"-->
+    <!--        android:startColor="#408bff"-->
+    <!--        android:endColor="#79EBFD"-->
+    <!--        android:type="linear"-->
+    <!--        />-->
+    <!--    <size-->
+    <!--        android:width="@dimen/_156sdp"-->
+    <!--        android:height="@dimen/_50sdp"-->
+    <!--        />-->
+    <!--</shape>-->

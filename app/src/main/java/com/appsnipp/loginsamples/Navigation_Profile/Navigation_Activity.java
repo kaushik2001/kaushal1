@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,9 +34,9 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.Toast;
 
+import com.appsnipp.loginsamples.BottomNavigationBehaviour;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.account.AccountFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment;
-import com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.event.EventFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment;
@@ -108,6 +109,8 @@ public class Navigation_Activity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         manager=getSupportFragmentManager();
         setSupportActionBar(toolbar);
+        NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.n1);
+        scrollView.setFillViewport (true);
 //      /*  FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -119,19 +122,34 @@ public class Navigation_Activity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
          navigationView =findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.nav_view_bottom);
+
+
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehaviour());
+
+
+
+
+
+
         //bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         bottomNavigationView.setSelectedItemId(R.id.navB_home);
         navigationView=findViewById(R.id.nav_view);
         navigationView.setCheckedItem(R.id.nav_home);
 
+
+
+
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_account, R.id.nav_member,
-                R.id.nav_election, R.id.nav_document, R.id.nav_resource,R.id.nav_profile,
-                R.id.nav_building,R.id.nav_complain,R.id.navB_home,R.id.navB_notice,
+                R.id.nav_election, R.id.nav_document, R.id.nav_resource, R.id.nav_complain,R.id.navB_home,R.id.navB_notice,
                 R.id.navB_building,R.id.navB_profile,
-                R.id.nav_event,R.id.nav_notice,R.id.nav_visitor)
+                R.id.nav_event,R.id.nav_visitor)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

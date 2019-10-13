@@ -66,7 +66,7 @@
             android:layout_height="50dp"
             android:id="@+id/loginbutton"
             style="@style/loginButton"
-            android:background="@drawable/registration_bt"
+            android:background="@drawable/registration_br"
             android:text="Login"
             android:onClick="login"
             android:layout_gravity="center_horizontal"

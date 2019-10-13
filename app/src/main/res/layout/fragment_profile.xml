@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,6 +69,7 @@
                         android:textSize="15sp"
                         />
                     <TextView
+                        android:id="@+id/ka1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="125"
@@ -134,10 +136,10 @@
             android:id="@+id/tablayout_tl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:tabSelectedTextColor="@color/whiteTextColor"
-            app:tabTextColor="@color/number"
-            app:tabIndicatorColor="@color/whiteTextColor">
+
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/gray"
+            app:tabIndicatorColor="@color/colorPrimary">
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,12 +154,13 @@
                 android:text="Change\nPassword" />
         </android.support.design.widget.TabLayout>
         <android.support.v4.view.ViewPager
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/tablayout_viewpager"/>
 
     </LinearLayout>
 
 
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

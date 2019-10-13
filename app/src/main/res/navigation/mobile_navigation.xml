@@ -32,11 +32,11 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/nav_profile"
-        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.profile.ProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_profile"-->
+<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.profile.ProfileFragment"-->
+<!--        android:label="Profile"-->
+<!--        tools:layout="@layout/fragment_profile" />-->
 
     <fragment
         android:id="@+id/nav_account"
@@ -67,11 +67,11 @@
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.resource.ResourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resources" />
-    <fragment
-        android:id="@+id/nav_building"
-        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment"
-        android:label="@string/menu_buiding"
-        tools:layout="@layout/fragment_buildingdetails" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_building"-->
+<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment"-->
+<!--        android:label="@string/menu_buiding"-->
+<!--        tools:layout="@layout/fragment_buildingdetails" />-->
 
     <fragment
         android:id="@+id/nav_visitor"
@@ -83,11 +83,11 @@
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.event.EventFragment"
         android:label="@string/menu_event"
         tools:layout="@layout/fragment_event" />
-    <fragment
-        android:id="@+id/nav_notice"
-        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment"
-        android:label="@string/menu_notice"
-        tools:layout="@layout/fragment_notice" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_notice"-->
+<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment"-->
+<!--        android:label="@string/menu_notice"-->
+<!--        tools:layout="@layout/fragment_notice" />-->
     <fragment
         android:id="@+id/nav_complain"
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment"

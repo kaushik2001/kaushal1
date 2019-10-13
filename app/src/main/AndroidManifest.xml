@@ -16,7 +16,7 @@
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity android:name=".registration.Forgotpassword_form" />
-        <activity android:name=".complain.complainadd" />
+
         <activity android:name=".registration.Registration" />
         <activity android:name=".registration.password" />
         <activity android:name=".detailtest_activity" />

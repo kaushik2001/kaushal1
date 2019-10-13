@@ -4,22 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".profile.personaldetails">
+    tools:context=".profile.personaldetails"
+  >
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile Details"
-        android:textColor="@color/whiteTextColor"
+        android:layout_height="@dimen/_30sdp"
+        android:text="personal Details"
         android:gravity="center_vertical"
-        android:textSize="21sp"
-        android:layout_marginHorizontal="@dimen/_1sdp"
-        android:paddingHorizontal="@dimen/_10sdp"
-        android:background="@drawable/title"
-        android:drawableRight="@drawable/icon_edit" />
+        android:textColor="@color/whiteTextColor"
+        android:background="@drawable/detail_design_buttontype"
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:layout_gravity="center_vertical"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/icon_edit"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,27 +109,28 @@
         android:layout_marginTop="@dimen/loginViewsMargin"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Family Members"
-        android:textColor="@color/whiteTextColor"
+        android:layout_height="@dimen/_30sdp"
+        android:text="Family Member"
         android:gravity="center_vertical"
-        android:textSize="21sp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:layout_marginHorizontal="@dimen/_1sdp"
-        android:paddingHorizontal="@dimen/_10sdp"
-        android:background="@drawable/title"
+        android:textColor="@color/whiteTextColor"
+        android:background="@drawable/detail_design_buttontype"
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
         android:drawableRight="@drawable/icon_addcircle" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Emergency Number"
+        android:layout_height="@dimen/_30sdp"
+        android:text="Emergency number"
         android:textColor="@color/whiteTextColor"
+        android:background="@drawable/detail_design_buttontype"
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:gravity="center_vertical"
-        android:textSize="21sp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginHorizontal="@dimen/_1sdp"
-        android:paddingHorizontal="@dimen/_10sdp"
-        android:background="@drawable/title"
         android:drawableRight="@drawable/icon_addcircle" />
 </LinearLayout>
 </ScrollView>
