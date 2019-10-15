@@ -157,8 +157,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/tablayout_viewpager"/>
-
+            android:id="@+id/tablayout_viewpager" />
     </LinearLayout>
 
 
