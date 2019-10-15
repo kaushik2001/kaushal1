@@ -14,13 +14,19 @@
             android:name=".Navigation_Profile.Navigation_Activity"
             android:label="@string/title_activity_navigation_"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
-        <activity android:name=".registration.Forgotpassword_form" />
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".registration.Forgotpassword_form"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".registration.Registration" />
-        <activity android:name=".registration.password" />
-        <activity android:name=".detailtest_activity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".registration.Registration"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".registration.password"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".detailtest_activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
