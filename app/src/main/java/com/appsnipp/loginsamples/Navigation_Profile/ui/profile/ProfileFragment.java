@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
         manager = getActivity().getSupportFragmentManager();
 
       viewPager.setAdapter(new ProfileFragment.adapter(manager));
+        viewPager.setOffscreenPageLimit(3);
         tabLayout.addOnTabSelectedListener(this);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 //        PagerAdapter pagerAdapter=new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
@@ -95,7 +97,7 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
     }
 
 
-    public class adapter extends FragmentPagerAdapter {
+    public class adapter extends FragmentStatePagerAdapter {
 
         public adapter(FragmentManager fm) {
             super(fm);
