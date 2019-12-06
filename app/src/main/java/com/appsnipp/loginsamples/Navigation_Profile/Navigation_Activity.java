@@ -109,8 +109,7 @@ public class Navigation_Activity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         manager=getSupportFragmentManager();
         setSupportActionBar(toolbar);
-        NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.n1);
-        scrollView.setFillViewport (true);
+
 //      /*  FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
