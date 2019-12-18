@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.appsnipp.loginsamples.R;
-import com.appsnipp.loginsamples.list.adapter;
-import com.appsnipp.loginsamples.list.data;
+import com.appsnipp.loginsamples.resource_list.adapter;
+import com.appsnipp.loginsamples.resource_list.data;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.appsnipp.loginsamples.list;
+package com.appsnipp.loginsamples.resource_list;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

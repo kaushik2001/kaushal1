@@ -1,8 +1,4 @@
-package com.appsnipp.loginsamples.list;
-
-import android.support.design.circularreveal.CircularRevealHelper;
-
-import javax.sql.StatementEvent;
+package com.appsnipp.loginsamples.resource_list;
 
 public class data {
     String text1;
