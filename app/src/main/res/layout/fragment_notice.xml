@@ -3,59 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    style="@style/loginParent">
-    <RelativeLayout
-        style="@style/parent">
+
+>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:src="@drawable/header"/>
 
 
-        <LinearLayout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notice"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:textColor="@color/whiteTextColor"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/noticerecycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:weightSum="12">
-
-            <LinearLayout
-                style="@style/parent"
-                android:background="@drawable/login_shape_bk"
-                android:orientation="vertical"
-                android:layout_weight="3">
-
-                <ImageView
-                    style="@style/parent"
-                    android:background="@drawable/ic_login_bk"
-                    android:contentDescription="login background" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Notice"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/_25sdp"
-
-                android:textColor="@color/whiteTextColor"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                >
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/noticerecycle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"/>
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_marginLeft="@dimen/_20sdp"/>
+    </FrameLayout>
 </LinearLayout>

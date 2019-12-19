@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
+    <android.support.v7.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+android:layout_marginTop="@dimen/_10sdp"
+        android:focusable="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_12sdp"
+        >
+        <TextView
+            android:id="@+id/notice_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Notice for Maintenance Due"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_20sdp"/>
+        <TextView
+            android:id="@+id/notice_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Defaulters post Oct 12th will be levied a final of 10%."
+            android:textSize="13sp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            />
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            app:srcCompat="@drawable/icon_account"
+            android:alpha="0.9"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_marginLeft="@dimen/_20sdp"/>
+
+        <TextView
+            android:id="@+id/notice_add_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="K.L.Mokariya"
+            android:textSize="12sp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_72sdp"
+            />
+        <TextView
+            android:id="@+id/notice_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 min.ago,11:20 AM"
+            android:textSize="10sp"
+            android:layout_marginLeft="@dimen/_160sdp"
+            android:layout_marginTop="@dimen/_73sdp"
+            />
+    </android.support.v7.widget.CardView>
+</LinearLayout>
