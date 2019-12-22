@@ -25,12 +25,21 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/_60sdp"
             android:textColor="@color/whiteTextColor"/>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+
         <android.support.v7.widget.RecyclerView
+            android:layoutAnimation="@anim/layout_anmimation_fall_down"
             android:id="@+id/noticerecycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_90sdp"
             android:layout_marginLeft="@dimen/_20sdp"/>
+        </android.support.v4.widget.NestedScrollView>
     </FrameLayout>
 </LinearLayout>

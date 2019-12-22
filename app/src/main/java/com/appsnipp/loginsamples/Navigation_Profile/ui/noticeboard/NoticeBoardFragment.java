@@ -2,6 +2,7 @@ package com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.appsnipp.loginsamples.R;
 import com.appsnipp.loginsamples.notice_recycle.notice_adapter;
@@ -56,5 +59,13 @@ public class NoticeBoardFragment extends Fragment {
 
 
         return root;
+    }
+    private void runLayoutanimation (RecyclerView recyclerView)
+    {
+        Context context=recyclerView.getContext();
+        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(context,R.anim.layout_anmimation_fall_down);
+        recyclerView.setLayoutAnimation(layoutAnimationController);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
     }
 }
