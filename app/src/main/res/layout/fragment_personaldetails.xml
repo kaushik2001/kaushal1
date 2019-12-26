@@ -36,7 +36,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+
        android:hint="First name"
         android:textSize="16sp"
         android:layout_marginLeft="@dimen/_3sdp"/>
@@ -53,7 +53,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+
         android:hint="Last name"
         android:textSize="16sp"
         android:layout_marginLeft="@dimen/_3sdp"/>
@@ -70,7 +70,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+
         android:hint="enter email"
         android:textSize="16sp"
         android:inputType="textEmailAddress"
@@ -88,7 +88,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+
         android:hint="enter Mobile no"
         android:inputType="phone"
         android:textSize="16sp"

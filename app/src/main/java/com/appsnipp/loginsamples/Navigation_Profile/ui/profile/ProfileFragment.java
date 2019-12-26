@@ -1,7 +1,20 @@
 package com.appsnipp.loginsamples.Navigation_Profile.ui.profile;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,9 +26,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LayoutAnimationController;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +49,21 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
     ViewPager viewPager;
     FragmentManager manager;
     Fragment fragment;
-    TextView t;
+    AlertDialog.Builder builder;
+ImageView img;
+
+
+
     private ProfileViewModel profileViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View root = inflater.inflate(R.layout.fragment_profile, container, false);
         tabLayout = root.findViewById(R.id.tablayout_tl);
-        t = root.findViewById(R.id.ka1);
+
         viewPager = root.findViewById(R.id.tablayout_viewpager);
         manager = getActivity().getSupportFragmentManager();
 
@@ -76,9 +99,49 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
 //                //          textView.setText(s);
 //            }
 //        });
+        img=root.findViewById(R.id.pre_dp);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater1=(LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v=inflater.inflate(R.layout.fragement_profile_dp,null);
+                ImageView dp;
+                TextView t;
+                dp=v.findViewById(R.id.profile_dp);
+                t=v.findViewById(R.id.edit_dp);
+                Drawable d=img.getDrawable();
+
+                dp.setImageDrawable(d);
+
+                builder = new AlertDialog.Builder(getActivity());
+
+                builder.setView(v);
+
+
+
+                builder.setCancelable(true);
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                //.setLayoutAnimation(layoutAnimationController);
+                alert.getWindow().getAttributes().windowAnimations=R.style.DialogAnimation;
+                alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+            }
+
+
+        });
+
+
         return root;
 
     }
+
+
+
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
