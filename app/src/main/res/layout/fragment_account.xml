@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/text_account"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/header"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Maintenance"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:textColor="@color/whiteTextColor"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/accout_tablayout"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/tablayout_background"
+            app:tabBackground="@drawable/tablayout_selector"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextAppearance="@style/TabTextAppearance"
+            app:tabRippleColor="@null"
+            app:tabIndicator="@null">
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bill\nDetails" />
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maintenance\nDetails" />
+        </android.support.design.widget.TabLayout>
+        <android.support.v4.view.ViewPager
+            android:layout_marginTop="@dimen/_138sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tablayout_account_viewpager" />
+    </FrameLayout>
+</LinearLayout>
