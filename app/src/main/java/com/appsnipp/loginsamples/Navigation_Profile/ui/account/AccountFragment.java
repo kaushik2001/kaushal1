@@ -21,6 +21,7 @@ public class AccountFragment extends Fragment implements TabLayout.OnTabSelected
     ViewPager viewPager;
     FragmentManager manager;
     Fragment fragment;
+
     private AccountViewModel accountViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

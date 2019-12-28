@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            app:cardElevation="5dp"
+            android:backgroundTint="@color/colorAccent"
+            app:cardCornerRadius="@dimen/_13sdp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/member_flatno"
+                android:textSize="19sp"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/whiteTextColor"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="C-301"/>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:backgroundTint="@color/whiteTextColor"
+            android:layout_height="@dimen/_87sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_15sdp">
+
+
+
+
+                <TextView
+                    android:id="@+id/member_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Name : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_toRightOf="@+id/member_name"
+                    android:id="@+id/member_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mokariya kaushik "
+                    android:layout_marginLeft="@dimen/_33sdp"
+                    android:textSize="13sp"
+                    />
+                <TextView
+                    android:id="@+id/member_mobile"
+                    android:layout_below="@+id/member_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Mobile : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_below="@+id/member_name2"
+                    android:id="@+id/member_mobile2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mokariya kaushik "
+                    android:layout_toRightOf="@+id/member_mobile"
+                    android:textSize="13sp"
+                    android:layout_alignStart="@+id/member_name2"
+                    />
+                <TextView
+                    android:layout_below="@+id/member_mobile"
+                    android:id="@+id/member_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Email : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_alignStart="@+id/member_name2"
+                    android:layout_below="@+id/member_mobile2"
+                    android:id="@+id/member_email2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30/12/2020 "
+                    android:layout_toRightOf="@+id/member_email"
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_below="@+id/member_email"
+                    android:id="@+id/member_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Members : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_alignStart="@+id/member_name2"
+                    android:layout_toRightOf="@id/member_total"
+                    android:layout_below="@+id/member_email2"
+                    android:id="@+id/member_total2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 member "
+                    android:textSize="13sp"
+                    />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+
+</LinearLayout>

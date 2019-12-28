@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.appsnipp.loginsamples.R;
-import com.appsnipp.loginsamples.visitior_recy.visitior_adapter;
-import com.appsnipp.loginsamples.visitior_recy.visitior_data;
 
 import java.util.List;
 
