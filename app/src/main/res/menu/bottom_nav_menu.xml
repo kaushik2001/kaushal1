@@ -8,6 +8,7 @@
         android:title="Home" />
     <item
         android:id="@+id/navB_building"
+        
         android:icon="@drawable/icon_building_black"
         android:title="Building Details" />
 

@@ -25,7 +25,7 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginTop="15dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/visitor_icon"
             android:layout_gravity="center_horizontal"
             app:civ_border_width="2dp"
             app:civ_border_color="#00a5ff"/>
