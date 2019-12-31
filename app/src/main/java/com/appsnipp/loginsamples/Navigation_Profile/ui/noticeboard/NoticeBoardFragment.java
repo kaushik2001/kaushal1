@@ -53,7 +53,7 @@ public class NoticeBoardFragment extends Fragment {
             }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        notice_adapter ada=new notice_adapter(li);
+        notice_adapter ada=new notice_adapter(getContext(),li);
         recyclerView.setAdapter(ada);
 
 
