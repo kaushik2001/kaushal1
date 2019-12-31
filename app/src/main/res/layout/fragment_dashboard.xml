@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteTextColor">
 
     <ImageView
         android:layout_width="match_parent"
@@ -57,6 +58,7 @@
                     android:padding="@dimen/_6sdp"
                     android:rowCount="5">
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_account"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -94,6 +96,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_resource"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_12sdp"
@@ -131,6 +134,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_document"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -168,6 +172,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_member"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_12sdp"
@@ -205,6 +210,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_event"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -242,6 +248,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_election"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_12sdp"
@@ -279,6 +286,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_complain"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -316,6 +324,7 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                     <android.support.v7.widget.CardView
+                        android:id="@+id/card_visitor"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:layout_marginLeft="@dimen/_12sdp"

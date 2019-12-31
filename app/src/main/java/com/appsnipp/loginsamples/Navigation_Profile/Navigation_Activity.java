@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -37,6 +38,7 @@ import android.widget.Toast;
 import com.appsnipp.loginsamples.BottomNavigationBehaviour;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.account.AccountFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment;
+import com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.event.EventFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment;
@@ -54,53 +56,14 @@ import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
 public class Navigation_Activity extends AppCompatActivity {
     Fragment fragment;
+    DashBoardFragment dash;
+
     FragmentManager manager;
     FragmentTransaction transaction;
     BottomNavigationView bottomNavigationView;
     NavigationView navigationView;
     private AppBarConfiguration mAppBarConfiguration;
-//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-//
-//        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//            int id = item.getItemId();
-//            navigationView=findViewById(R.id.nav_view);
-//            if (id == R.id.navB_home) {
-//                navigationView.setCheckedItem(R.id.nav_home);
-//                fragment = new DashBoardFragment();
-//
-//
-//            } else if (id == R.id.navB_building) {
-//                navigationView.setCheckedItem(R.id.nav_building);
-//                fragment = new BuildingDetailsFragment();
-//
-//
-//            } else if (id == R.id.navB_profile) {
-//                navigationView.setCheckedItem(R.id.nav_profile);
-//                fragment = new ProfileFragment();
-//
-//            }
-//            else if (id == R.id.navB_notice) {
-//                navigationView.setCheckedItem(R.id.nav_notice);
-//                fragment = new NoticeBoardFragment();
-//
-//            }else if (id == R.id.navB_menu) {
-//                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//                drawer.openDrawer(GravityCompat.START);
-//                return true;
-//            }
-//
-//            transaction = manager.beginTransaction();
-//            transaction.replace(R.id.nav_host_fragment, fragment,"A");
-//            transaction.addToBackStack("addA");
-//            manager.popBackStack();
-//            transaction.commit();
-//
-//            return true;
-//        }
-//    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,14 +73,6 @@ public class Navigation_Activity extends AppCompatActivity {
         manager=getSupportFragmentManager();
         setSupportActionBar(toolbar);
 
-//      /*  FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
          navigationView =findViewById(R.id.nav_view);
         bottomNavigationView = findViewById(R.id.nav_view_bottom);
@@ -155,6 +110,7 @@ public class Navigation_Activity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
         NavigationUI.setupWithNavController(navigationView, navController);
+
         findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,81 +141,19 @@ public class Navigation_Activity extends AppCompatActivity {
     public void onBackPressed() {
   if(R.id.navB_home!=bottomNavigationView.getSelectedItemId()) {
       bottomNavigationView.setSelectedItemId(R.id.navB_home);
+
   }
-        super.onBackPressed();
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0 ) {
+            getSupportFragmentManager().popBackStackImmediate(0,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+        else{
+            super.onBackPressed();
+        }
+//        super.onBackPressed();
     }
-    //    @SuppressWarnings("StatementWithEmptyBody")
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                int id = menuItem.getItemId();
-//
-//        if (id == R.id.nav_home) {
-//
-//
-//
-//            Toast.makeText(this, "Activity is refresh", Toast.LENGTH_SHORT).show();
-//            fragment = new DashBoardFragment();
-//
-//
-//        } else if (id == R.id.nav_account) {
-//            Toast.makeText(this, "Activity is refresh", Toast.LENGTH_SHORT).show();
-//            fragment = new AccountFragment();
-//
-//
-//        } else if (id == R.id.nav_member) {
-//            Toast.makeText(this, "Activity is refresh", Toast.LENGTH_SHORT).show();
-//
-//            fragment = new MembersFragment();
-//
-//        }
-//        else if (id == R.id.nav_notice) {
-//
-//            fragment = new NoticeBoardFragment();
-//
-//        }else if (id == R.id.nav_complain) {
-//
-//            fragment = new ComplainFragment();
-//
-//        }else if (id == R.id.nav_visitor) {
-//            fragment = new VisitorFragment();
-//
-//        } else if (id == R.id.nav_election) {
-//            fragment = new ElectionFragment();
-//
-//        } else if (id == R.id.nav_building) {
-//
-//            fragment = new BuildingDetailsFragment();
-//
-//        }else if (id == R.id.nav_document) {
-//            fragment = new DocumentFragment();
-//
-//        }else if (id == R.id.nav_event) {
-//            fragment = new EventFragment();
-//
-//
-//        } else if (id == R.id.nav_resource) {
-//            fragment = new ResourceFragment();
-//
-//
-//        }
-//        else if (id == R.id.nav_profile) {
-//
-//            fragment = new ProfileFragment();
-//
-//
-//        }
-//
-//
-//
-//        transaction = manager.beginTransaction();
-//        transaction.add(R.id.nav_host_fragment, fragment, "A");
-//        transaction.addToBackStack("addA");
-//        transaction.commit();
-//        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
-//        return true;
-//    }
-//
+
+
+
 
 
 }
