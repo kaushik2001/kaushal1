@@ -123,11 +123,14 @@ ImageView img;
                 builder = new AlertDialog.Builder(getActivity());
 
                 builder.setView(v);
+
     t.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
+
         selectImage();
     }
+
 });
 
 
@@ -271,7 +274,7 @@ ImageView img;
                 Glide.with(ProfileFragment.this)
                         .load(mPhotoFile)
                         .apply(new RequestOptions().centerCrop()
-                                .circleCrop()
+
                                 .placeholder(R.drawable.profile_pic_place_holder))
                         .into(img);
             } else if (requestCode == REQUEST_GALLERY_PHOTO) {
@@ -284,7 +287,7 @@ ImageView img;
                 Glide.with(ProfileFragment.this)
                         .load(mPhotoFile)
                         .apply(new RequestOptions().centerCrop()
-                                .circleCrop()
+
                                 .placeholder(R.drawable.profile_pic_place_holder))
                         .into(img);
             }

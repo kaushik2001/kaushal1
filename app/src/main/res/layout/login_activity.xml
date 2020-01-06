@@ -32,48 +32,47 @@
                 </LinearLayout>
 
             </LinearLayout>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo"
-        android:elevation="1dp"
-
-        app:civ_border_overlay="true"
-        />
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:orientation="vertical"
-                android:layout_marginTop="100dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
+                android:layout_height="wrap_content">
 
-                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/logo"
+                    android:elevation="1dp"
 
-
-                <!--<TextView
-                    style="@style/headerText"
-                    android:layout_gravity="center"
-                    android:text="Smart Building Sector"
-                    android:layout_marginTop="40dp"/>-->
-                <include
-                    layout="@layout/login_form"
+                    app:civ_border_overlay="true"
                     />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
 
-            </LinearLayout>
-</FrameLayout>
+                    >
+
+
+                    <!--<TextView
+                        style="@style/headerText"
+                        android:layout_gravity="center"
+                        android:text="Smart Building Sector"
+                        android:layout_marginTop="40dp"/>-->
+                    <include
+                        layout="@layout/login_form"
+                        />
+
+                </LinearLayout>
+            </FrameLayout>
 
         </RelativeLayout>
 
     </ScrollView>
-
 </RelativeLayout>
 
 

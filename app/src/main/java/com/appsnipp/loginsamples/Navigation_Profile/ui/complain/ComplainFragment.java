@@ -140,7 +140,7 @@ img=root.findViewById(R.id.complain_img);
                 }
                 Glide.with(ComplainFragment.this)
                         .load(mPhotoFile)
-                        .apply(new RequestOptions().centerCrop()
+                        .apply(new RequestOptions()
                                 .placeholder(R.drawable.profile_pic_place_holder))
                         .into(img);
             } else if (requestCode == REQUEST_GALLERY_PHOTO) {
@@ -152,7 +152,7 @@ img=root.findViewById(R.id.complain_img);
                 }
                 Glide.with(ComplainFragment.this)
                         .load(mPhotoFile)
-                        .apply(new RequestOptions().centerCrop()
+                        .apply(new RequestOptions()
                                 .placeholder(R.drawable.profile_pic_place_holder))
                         .into(img);
             }

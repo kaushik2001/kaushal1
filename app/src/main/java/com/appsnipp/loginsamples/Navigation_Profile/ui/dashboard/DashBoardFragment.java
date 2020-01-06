@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -29,6 +30,7 @@ public class DashBoardFragment extends Fragment {
     FragmentManager manager;
     FragmentTransaction transaction;
     Fragment fragment;
+    NavigationView navigationView;
     private DashBoardViewModel dashBoardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -43,6 +45,7 @@ public class DashBoardFragment extends Fragment {
 //                textView.setText(s);
             }
         });
+        navigationView =root.findViewById(R.id.nav_view);
         manager=getActivity().getSupportFragmentManager();
         c1=(CardView) root.findViewById(R.id.card_account);
         c2=(CardView) root.findViewById(R.id.card_resource);
@@ -55,7 +58,7 @@ public class DashBoardFragment extends Fragment {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "kaushal", Toast.LENGTH_SHORT).show();
+
                 fragment = new AccountFragment();
                 transaction = manager.beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, fragment);

@@ -36,19 +36,19 @@ public class bill_details extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bill_details, container, false);
-       recyclerView=(RecyclerView) view.findViewById(R.id.bill_recycle);
+        recyclerView=(RecyclerView) view.findViewById(R.id.bill_recycle);
         li = new ArrayList<>();
-        bill_data data[] = {new bill_data("123567","diwali","12000","1200")
-        ,new bill_data("3452152","holi","12345","234")
-        ,new bill_data( "7654321","society paint","2345356","00")
-        ,new bill_data("123567","diwali","12000","1200")
-                ,new bill_data("3452152","holi","12345","234")
-                ,new bill_data( "7654321","society paint","2345356","00")};
+        bill_data data[] = {new bill_data("000001","diwali","12000","1200")
+                ,new bill_data("000002","holi","12345","234")
+                ,new bill_data( "000003","society paint","2345356","00")
+                ,new bill_data("000004","diwali","12000","1200")
+                ,new bill_data("000005","holi","12345","234")
+                ,new bill_data( "000006","society paint","2345356","00")};
         for(int i=0;i< data.length;i++){
             li.add(data[i]);
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        bill_adapter ev=new bill_adapter(li);
+        bill_adapter ev=new bill_adapter(li,getContext());
         recyclerView.setAdapter(ev);
 
         return view;

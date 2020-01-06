@@ -32,7 +32,7 @@ public class AccountFragment extends Fragment implements TabLayout.OnTabSelected
         tabLayout = root.findViewById(R.id.accout_tablayout);
 
         viewPager = root.findViewById(R.id.tablayout_account_viewpager);
-        manager = getActivity().getSupportFragmentManager();
+        manager = getFragmentManager();
         viewPager.setAdapter(new AccountFragment.adapter(manager));
         viewPager.setOffscreenPageLimit(2);
         tabLayout.addOnTabSelectedListener(this);
