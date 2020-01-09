@@ -82,8 +82,7 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
     File mPhotoFile;
     FileCompressor mCompressor;
 
-ImageView img;
-
+    ImageView img;
 
 
     private ProfileViewModel profileViewModel;
@@ -99,24 +98,24 @@ ImageView img;
         viewPager = root.findViewById(R.id.tablayout_viewpager);
         manager = getActivity().getSupportFragmentManager();
 
-      viewPager.setAdapter(new ProfileFragment.adapter(manager));
+        viewPager.setAdapter(new ProfileFragment.adapter(manager));
         viewPager.setOffscreenPageLimit(3);
         tabLayout.addOnTabSelectedListener(this);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        img=root.findViewById(R.id.pre_dp);
+        img = root.findViewById(R.id.pre_dp);
 
         img.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater1=(LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View v=inflater.inflate(R.layout.fragement_profile_dp,null);
+                LayoutInflater inflater1 = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v = inflater.inflate(R.layout.fragement_profile_dp, null);
                 ImageView dp;
                 TextView t;
-                dp=v.findViewById(R.id.profile_dp);
-                t=v.findViewById(R.id.edit_dp);
-                Drawable d=img.getDrawable();
+                dp = v.findViewById(R.id.profile_dp);
+                t = v.findViewById(R.id.edit_dp);
+                Drawable d = img.getDrawable();
 
                 dp.setImageDrawable(d);
 
@@ -124,22 +123,23 @@ ImageView img;
 
                 builder.setView(v);
 
-    t.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-
-        selectImage();
-    }
-
-});
-
-
                 builder.setCancelable(true);
                 AlertDialog alert = builder.create();
                 alert.show();
 
+                t.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        selectImage();
+                        alert.dismiss();
+                    }
+
+                });
+
+
                 //.setLayoutAnimation(layoutAnimationController);
-                alert.getWindow().getAttributes().windowAnimations=R.style.DialogAnimation;
+                alert.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
                 alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
@@ -152,8 +152,6 @@ ImageView img;
         return root;
 
     }
-
-
 
 
     @Override
@@ -181,7 +179,7 @@ ImageView img;
 
         @Override
         public Fragment getItem(int position) {
-            fragment=null;
+            fragment = null;
             if (position == 0) {
 
                 fragment = new personaldetails();
@@ -208,6 +206,7 @@ ImageView img;
             return 3;
         }
     }
+
     private void selectImage() {
         final CharSequence[] items = {
                 "Take Photo", "Choose from Library",
@@ -369,7 +368,7 @@ ImageView img;
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String mFileName = "JPEG_" + timeStamp + "_";
-        File storageDir =getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
         return mFile;
     }
@@ -380,8 +379,8 @@ ImageView img;
     public String getRealPathFromUri(Uri contentUri) {
         Cursor cursor = null;
         try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor =getActivity().getContentResolver().query(contentUri, proj, null, null, null);
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getActivity().getContentResolver().query(contentUri, proj, null, null, null);
             assert cursor != null;
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
