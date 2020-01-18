@@ -46,7 +46,7 @@ public class DashBoardFragment extends Fragment {
             }
         });
         navigationView =root.findViewById(R.id.nav_view);
-        manager=getActivity().getSupportFragmentManager();
+        manager=getFragmentManager();
         c1=(CardView) root.findViewById(R.id.card_account);
         c2=(CardView) root.findViewById(R.id.card_resource);
         c3=(CardView) root.findViewById(R.id.card_document);

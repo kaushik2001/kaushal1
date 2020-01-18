@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.appsnipp.loginsamples.R;
 import com.appsnipp.loginsamples.accout_fragment.bill_details;
@@ -68,6 +69,7 @@ public class AccountFragment extends Fragment implements TabLayout.OnTabSelected
             if (position == 0) {
 
                 fragment = new bill_details();
+
 
             }
             if (position == 1) {
