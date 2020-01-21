@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.appsnipp.loginsamples.BuildConfig;
@@ -40,6 +41,7 @@ import java.util.List;
 
 public class Registration extends AppCompatActivity {
     EditText fn,ln,mn,ma;
+Spinner b,n;
     AlertDialog.Builder builder;
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_GALLERY_PHOTO = 2;
@@ -54,6 +56,10 @@ public class Registration extends AppCompatActivity {
         ln=(EditText) findViewById(R.id.lastname);
         mn=(EditText) findViewById(R.id.mobileno);
         ma=(EditText) findViewById(R.id.mail);
+
+b=(Spinner) findViewById(R.id.f_block_no);
+n=(Spinner) findViewById(R.id.f_no_spinner);
+
         imageViewProfilePic=(ImageView)findViewById(R.id.profile_image);
         mCompressor = new FileCompressor(this);
 
@@ -63,33 +69,48 @@ public class Registration extends AppCompatActivity {
 
     public void pass(View view) {
         boolean v=true;
-        String s1=fn.getText().toString();
-        String s2=ln.getText().toString();
-        String s3=mn.getText().toString();
-        String s4=ma.getText().toString();
+        String fname=fn.getText().toString();
+        String lname=ln.getText().toString();
+        String mobno=mn.getText().toString();
+        String email=ma.getText().toString();
+
+        String block=b.getSelectedItem().toString();
+        String flno=n.getSelectedItem().toString();
+        String houseno=block+"-"+flno;
+
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String MobilePattern = "[0-9]{10}";
 
-        if (s1.isEmpty()){
+        if (fname.isEmpty()){
             fn.setError("Enter Firstname");
             v=false;
         }
-        if (s2.isEmpty()){
+        if (lname.isEmpty()){
             ln.setError("Enter Lastname");
             v=false;
         }
-        if (s3.isEmpty() || !s3.matches(MobilePattern)){
+
+        if (mobno.isEmpty() || !mobno.matches(MobilePattern)){
 
             mn.setError("Enter Mobile Number");
             v=false;
         }
-        if (s4.isEmpty() || !s4.matches(emailPattern)){
-            ma.setError("Enter Email");
-            v=false;
+        if(!email.isEmpty()) {
+            if (!email.matches(emailPattern)) {
+                ma.setError("Enter Email");
+                v = false;
+            }
         }
+
         if (v == true) {
 
             Intent i = new Intent(Registration.this, password.class);
+            i.putExtra("ifname",fname);
+            i.putExtra("ilname",lname);
+            i.putExtra("imobno",mobno);
+            i.putExtra("iemail",email);
+
+            i.putExtra("ihouseno",houseno);
             startActivity(i);
         }
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SBS</string>
     <string name="register">REGISTER</string>
-    <string name="login_email_hint">Email*</string>
+    <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password*</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
@@ -32,20 +32,17 @@
     <string name="yes">Hello blank fragment</string>
     <string name="No">Hello blank fragment</string>
 
-    <string-array name="Roles_array">
-        <item><b>Role</b></item>
-        <item>Member</item>
-        <item>Secretary</item>
-        <item>Gatekeeper</item>
-
-
-    </string-array>
-    <string-array name="House_spinner">
+    <string-array name="House_block_no">
         <item>A</item>
         <item>B</item>
         <item>C</item>
         <item>D</item>
+        <item>E</item>
+        <item>F</item>
+
+
     </string-array>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="House_Number_spinner">
@@ -53,5 +50,13 @@
         <item>102</item>
         <item>103</item>
         <item>104</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>301</item>
+        <item>302</item>
+        <item>303</item>
+        <item>304</item>
     </string-array>
 </resources>
