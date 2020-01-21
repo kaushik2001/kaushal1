@@ -33,6 +33,7 @@
     <string name="No">Hello blank fragment</string>
 
     <string-array name="House_block_no">
+        <item><b>Block</b></item>
         <item>A</item>
         <item>B</item>
         <item>C</item>
@@ -40,12 +41,12 @@
         <item>E</item>
         <item>F</item>
 
-
     </string-array>
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="House_Number_spinner">
+        <item><b>Flat</b></item>
         <item>101</item>
         <item>102</item>
         <item>103</item>

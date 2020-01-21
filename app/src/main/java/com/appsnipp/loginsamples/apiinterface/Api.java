@@ -22,4 +22,13 @@ public interface Api {
             @Field("password") String password
 
     );
+
+    @FormUrlEncoded
+    @POST("loginapi.php")
+    Call<CommanResponse> login(
+
+            @Field("loginmember") String loginmember,
+            @Field("mobno") String mobno,
+            @Field("password") String password
+    );
 }

@@ -65,6 +65,7 @@ n=(Spinner) findViewById(R.id.f_no_spinner);
 
 
 
+
     }
 
     public void pass(View view) {
@@ -80,6 +81,17 @@ n=(Spinner) findViewById(R.id.f_no_spinner);
 
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String MobilePattern = "[0-9]{10}";
+
+        v=true;
+        if(b.getSelectedItemId()==0){
+            Toast.makeText(this, "Select Block no", Toast.LENGTH_SHORT).show();
+            v=false;
+        }
+        if(n.getSelectedItemId()==0){
+            Toast.makeText(this, "Select Flat no", Toast.LENGTH_SHORT).show();
+            v=false;
+        }
+
 
         if (fname.isEmpty()){
             fn.setError("Enter Firstname");
