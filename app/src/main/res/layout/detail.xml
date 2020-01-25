@@ -22,7 +22,7 @@
 
            <ImageView
                android:layout_width="match_parent"
-               android:layout_height="190dp"
+               android:layout_height="@dimen/_145sdp"
                android:scaleType="fitXY"
                android:src="@drawable/detail_images" />
            <LinearLayout

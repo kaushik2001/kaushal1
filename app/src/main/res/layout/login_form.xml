@@ -62,8 +62,8 @@
             android:layout_marginTop="10dp"/>
 
         <Button
-            android:layout_width="163dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_42sdp"
             android:id="@+id/loginbutton"
             style="@style/loginButton"
             android:background="@drawable/registration_br"

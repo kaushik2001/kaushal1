@@ -46,14 +46,14 @@
                         android:layout_weight="1">
 
                         <FrameLayout
-                            android:layout_width="107dp"
+                            android:layout_width="@dimen/_82sdp"
                             android:layout_height="@dimen/_80sdp">
 
                             <ImageView
                                 android:id="@+id/res_img"
-                                android:layout_width="82dp"
+                                android:layout_width="@dimen/_72sdp"
 
-                                android:layout_height="75dp"
+                                android:layout_height="@dimen/_67sdp"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="-10dp"
 

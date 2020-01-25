@@ -12,7 +12,7 @@
         <ImageView
             android:id="@+id/complain_img"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="@dimen/_135sdp"
             android:scaleType="fitXY"
             android:src="@drawable/detail_images" />
 
@@ -66,8 +66,8 @@
 
         <Button
             style="@style/loginButton"
-            android:layout_width="@dimen/_170sdp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_gravity="center"
             android:background="@drawable/registration_br"

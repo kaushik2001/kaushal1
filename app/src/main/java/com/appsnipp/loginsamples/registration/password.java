@@ -67,7 +67,7 @@ conformpassword=(EditText) findViewById(R.id.cpass);
             String llname=i1.getStringExtra("ilname");
             String mobino=i1.getStringExtra("imobno");
             String email=i1.getStringExtra("iemail");
-            String role=i1.getStringExtra("irole");
+
             String houseno=i1.getStringExtra("ihouseno");
 
             Api api= ApiClient.getClient().create(Api.class);
