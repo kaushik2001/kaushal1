@@ -47,12 +47,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appsnipp.loginsamples.BuildConfig;
+import com.appsnipp.loginsamples.LoginActivity;
 import com.appsnipp.loginsamples.Navigation_Profile.Navigation_Activity;
 import com.appsnipp.loginsamples.R;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.User;
 import com.appsnipp.loginsamples.camera.FileCompressor;
 import com.appsnipp.loginsamples.profile.forgetpassword;
 import com.appsnipp.loginsamples.profile.personaldetails;
 import com.appsnipp.loginsamples.profile.professionaldetails;
+import com.appsnipp.loginsamples.storage.sareprefrencelogin;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.karumi.dexter.Dexter;
@@ -76,7 +79,7 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
     Fragment fragment;
     AlertDialog.Builder builder;
 
-
+TextView name,mob;
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_GALLERY_PHOTO = 2;
     File mPhotoFile;
@@ -97,6 +100,22 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
         mCompressor = new FileCompressor(getContext());
         viewPager = root.findViewById(R.id.tablayout_viewpager);
         manager = getActivity().getSupportFragmentManager();
+name=(TextView) root.findViewById(R.id.user_name);
+        mob=(TextView) root.findViewById(R.id.user_mob);
+
+
+        mob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sareprefrencelogin.getInstance(getContext()).clear();
+                Intent i=new Intent(getContext(), LoginActivity.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
+
+
+
 
         viewPager.setAdapter(new ProfileFragment.adapter(manager));
         viewPager.setOffscreenPageLimit(3);
@@ -153,6 +172,14 @@ public class ProfileFragment extends Fragment implements TabLayout.OnTabSelected
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        User user= sareprefrencelogin.getInstance(getContext()).getuser();
+        String s=user.getFname()+" "+user.getLname();
+        name.setText(s);
+        mob.setText(user.getMobno());
+    }
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {

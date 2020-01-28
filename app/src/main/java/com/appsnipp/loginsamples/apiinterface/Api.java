@@ -1,5 +1,7 @@
 package com.appsnipp.loginsamples.apiinterface;
 
+import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -25,7 +27,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("loginapi.php")
-    Call<CommanResponse> login(
+    Call<loginresponce> login(
 
             @Field("loginmember") String loginmember,
             @Field("mobno") String mobno,
