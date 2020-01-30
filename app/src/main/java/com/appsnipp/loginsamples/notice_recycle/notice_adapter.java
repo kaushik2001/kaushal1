@@ -9,21 +9,24 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment;
 import com.appsnipp.loginsamples.R;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.notice_get_set;
 
 import java.util.List;
 
 public class notice_adapter extends RecyclerView.Adapter<notice_adapter.ViewHolder> {
-    public notice_adapter(Context mcontext,List<notice_data> notice_data) {
+    Dialog mydialog;
+    Context mcontext;
+    private List<notice_get_set> notice_data;
+    public notice_adapter(Context mcontext,List<notice_get_set> notice_data) {
         this.notice_data = notice_data;
         this.mcontext=mcontext;
     }
-Dialog mydialog;
-    Context mcontext;
-    private List<notice_data> notice_data;
+
 
     @NonNull
     @Override
@@ -40,10 +43,10 @@ Dialog mydialog;
                 TextView di_nt_desc=(TextView)mydialog.findViewById(R.id.notice_desc_dialog);
                 TextView di_nt_time=(TextView)mydialog.findViewById(R.id.notice_time_dialog);
                 TextView di_nt_add_name=(TextView)mydialog.findViewById(R.id.notice_add_name_dialog);
-                di_nt_head.setText(notice_data.get(viewHolder.getAdapterPosition()).getHeading());
-                di_nt_desc.setText(notice_data.get(viewHolder.getAdapterPosition()).getDesc());
-                di_nt_time.setText(notice_data.get(viewHolder.getAdapterPosition()).getTime());
-                di_nt_add_name.setText(notice_data.get(viewHolder.getAdapterPosition()).getName());
+                di_nt_head.setText(notice_data.get(viewHolder.getAdapterPosition()).getHeader());
+                di_nt_desc.setText(notice_data.get(viewHolder.getAdapterPosition()).getDescription());
+                di_nt_time.setText(notice_data.get(viewHolder.getAdapterPosition()).getDatetime());
+                di_nt_add_name.setText(notice_data.get(viewHolder.getAdapterPosition()).getAname());
                 mydialog.show();
                 return false;
             }
@@ -69,11 +72,11 @@ Dialog mydialog;
 
     @Override
     public void onBindViewHolder(@NonNull notice_adapter.ViewHolder holder, int i) {
-        notice_data d= notice_data.get(i);
-        holder.n_head.setText(d.getHeading());
-        holder.n_desc.setText(d.getDesc());
-        holder.n_name.setText(d.getName());
-        holder.n_time.setText(d.getTime());
+        notice_get_set d= notice_data.get(i);
+        holder.n_head.setText(d.getHeader());
+        holder.n_desc.setText(d.getDescription());
+        holder.n_name.setText(d.getAname());
+        holder.n_time.setText(d.getDatetime());
 
 
     }
@@ -81,16 +84,17 @@ Dialog mydialog;
     @Override
     public int getItemCount() {
         return notice_data.size();
+        //return notice_data == null ? 0 : notice_data.size();
     }
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-    public TextView n_head,n_desc,n_name,n_time;
+        public TextView n_head,n_desc,n_name,n_time;
 
-LinearLayout li;
+        RelativeLayout li;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            li=(LinearLayout) itemView.findViewById(R.id.notice_layout_id) ;
+            li=(RelativeLayout) itemView.findViewById(R.id.notice_layout_id) ;
             n_head=(TextView) itemView.findViewById(R.id.notice_head);
             n_desc=(TextView) itemView.findViewById(R.id.notice_desc);
             n_name=(TextView) itemView.findViewById(R.id.notice_add_name);

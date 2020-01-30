@@ -2,33 +2,30 @@ package com.appsnipp.loginsamples.resource_list;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appsnipp.loginsamples.R;
-import com.appsnipp.loginsamples.maintence_recycle.maintence_adapter;
-import com.appsnipp.loginsamples.maintence_recycle.maintence_data;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.resource_get_set;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
-
-    private List<data> data;
-    public adapter(List<data> data){
+public class resource_adapter extends RecyclerView.Adapter<resource_adapter.ViewHolder> {
+    Context mcontext;
+    private List<resource_get_set> data;
+    public resource_adapter(Context mcontext,List<resource_get_set> data){
         this.data=data;
+        this.mcontext=mcontext;
     }
 
 
     @NonNull
     @Override
-    public adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public resource_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemview= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.resource_list,null);
 
         ViewHolder viewHolder=new ViewHolder(itemview);
@@ -36,14 +33,14 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adapter.ViewHolder viewHolder, int i) {
-        data d=data.get(i);
+    public void onBindViewHolder(@NonNull resource_adapter.ViewHolder viewHolder, int i) {
+        resource_get_set d=data.get(i);
 
-        viewHolder.re_name.setText(d.text1);
-        viewHolder.flat_no.setText(d.text);
-        viewHolder.re_name_.setText(d.text2);
-        viewHolder.re_detail.setText(d.text3);
-        viewHolder.re_img.setImageResource(d.img);
+        viewHolder.re_name.setText(d.getName());
+        viewHolder.flat_no.setText(d.getCapacity());
+        viewHolder.re_name_.setText(d.getCharge());
+        viewHolder.re_detail.setText(d.getDetails());
+        // viewHolder.re_img.setImageResource(d.img);
     }
 
     @Override

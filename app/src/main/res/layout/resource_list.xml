@@ -52,7 +52,7 @@
                             <ImageView
                                 android:id="@+id/res_img"
                                 android:layout_width="@dimen/_72sdp"
-
+android:src="@drawable/club"
                                 android:layout_height="@dimen/_67sdp"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="-10dp"

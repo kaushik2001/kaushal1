@@ -1,5 +1,6 @@
 package com.appsnipp.loginsamples.event_recycle_view;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,13 +9,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.appsnipp.loginsamples.R;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.event_get_set;
 
 import java.util.List;
 
 public class event_adapter extends RecyclerView.Adapter<event_adapter.ViewHolder> {
-    private List<event_data> event_data;
-    public event_adapter(List<event_data> event_data){
+
+    Context mcontext;
+
+    private List<event_get_set> event_data;
+    public event_adapter(Context mcontext, List<event_get_set> event_data){
         this.event_data=event_data;
+        this.mcontext=mcontext;
     }
 
     @NonNull
@@ -28,13 +34,13 @@ public class event_adapter extends RecyclerView.Adapter<event_adapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull event_adapter.ViewHolder viewHolder, int i) {
-        event_data d=event_data.get(i);
+        event_get_set d=event_data.get(i);
 
-        viewHolder.ev_name.setText(d.e_name);
-        viewHolder.ev_place.setText(d.e_place);
-        viewHolder.ev_member.setText(d.e_member);
-        viewHolder.ev_date.setText(d.e_date);
-        viewHolder.ev_time.setText(d.e_time);
+        viewHolder.ev_name.setText(d.getName());
+        viewHolder.ev_place.setText(d.getPlace());
+        viewHolder.ev_member.setText(d.getMembers());
+        viewHolder.ev_date.setText(d.getDate());
+        viewHolder.ev_time.setText(d.getTime());
     }
 
     @Override
