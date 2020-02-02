@@ -35,6 +35,7 @@ import com.appsnipp.loginsamples.visitior_recy.visitior_data;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -76,7 +77,9 @@ public class EventFragment extends Fragment {
             @Override
             public void onResponse(Call<event_responce> call, Response<event_responce> response) {
                 li=response.body().getDe();
+                Collections.reverse(li);
                 ev=new event_adapter(getContext(),li);
+
                 recyclerView.setAdapter(ev);
             }
 
