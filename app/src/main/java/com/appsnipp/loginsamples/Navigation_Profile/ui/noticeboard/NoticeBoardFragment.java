@@ -5,6 +5,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -83,11 +84,21 @@ public class NoticeBoardFragment extends Fragment {
 //            }
         recyclerView=(RecyclerView) root.findViewById(R.id.noticerecycle);
         swipe=(SwipeRefreshLayout) root.findViewById(R.id.swipe_notice);
+        swipe.setColorSchemeColors(getResources().getColor(R.color.colorPrimary),getResources().getColor(R.color.lite_blue));
+
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                loadnotice();
-                swipe.setRefreshing(false);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        loadnotice();
+                        swipe.setRefreshing(false);
+                        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_anmimation_fall_down);
+                        recyclerView.setLayoutAnimation(layoutAnimationController);
+                    }
+                }, 2000);
+                //swipe.setRefreshing(false);
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

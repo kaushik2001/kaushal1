@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -53,11 +54,21 @@ public class VisitorFragment extends Fragment {
 
         recyclerView=(RecyclerView) root.findViewById(R.id.visitior_recycle);
        swipe=(SwipeRefreshLayout) root.findViewById(R.id.swipe_visitor);
+        swipe.setColorSchemeColors(getResources().getColor(R.color.colorPrimary),getResources().getColor(R.color.lite_blue));
+
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-           loadvisitior();
-              swipe.setRefreshing(false);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        loadvisitior();
+                        swipe.setRefreshing(false);
+                        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
+                        recyclerView.setLayoutAnimation(layoutAnimationController);
+                    }
+                }, 2000);
+           //   swipe.setRefreshing(false);
             }
         });
 
