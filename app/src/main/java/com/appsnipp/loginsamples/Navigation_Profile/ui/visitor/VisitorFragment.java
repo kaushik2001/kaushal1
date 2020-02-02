@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ import com.appsnipp.loginsamples.visitior_recy.visitior_data;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +42,7 @@ public class VisitorFragment extends Fragment {
     List<visi_de> li;
     TextView t;
     visitior_adapter vi;
+    SwipeRefreshLayout swipe;
     private VisitorViewModel visitorViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,6 +52,18 @@ public class VisitorFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_visitor, container, false);
 
         recyclerView=(RecyclerView) root.findViewById(R.id.visitior_recycle);
+       swipe=(SwipeRefreshLayout) root.findViewById(R.id.swipe_visitor);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+           loadvisitior();
+              swipe.setRefreshing(false);
+            }
+        });
+
+
+
+
 //        li=new ArrayList<>();
 //        visitior_data data[]={new visitior_data("jethava kaushal","7383846827","21/04/2020","1:20pm","2:20pm","B-102")
 //                ,new visitior_data("mokariya kaushik","7383846827","21/04/2020","1:40pm","2:40pm","B-102")
@@ -58,15 +74,32 @@ public class VisitorFragment extends Fragment {
 //            li.add(data[i]);
 //        }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+       loadvisitior();
+
+
+
+        return root;
+    }
+
+
+    public void loadvisitior()
+    {
         Api api= ApiClient.getClient().create(Api.class);
         Call<visidetail_responce> call= api.visidetail("gatekvisidetail");
         call.enqueue(new Callback<visidetail_responce>() {
             @Override
             public void onResponse(Call<visidetail_responce> call, Response<visidetail_responce> response) {
-                li=response.body().getDe();
-                Collections.reverse(li);
-                vi=new visitior_adapter(getContext(),li);
-                recyclerView.setAdapter(vi);
+                if (response.body().getSuccess()==200) {
+                    li=response.body().getDe();
+                    Collections.reverse(li);
+                    vi=new visitior_adapter(getContext(),li);
+                    recyclerView.setAdapter(vi);
+                }
+                else {
+                    Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
 
             @Override
@@ -74,10 +107,6 @@ public class VisitorFragment extends Fragment {
                 Toast.makeText(getContext(), t.getLocalizedMessage()+"", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-        return root;
     }
     private void runLayoutanimation (RecyclerView recyclerView)
     {
@@ -87,4 +116,5 @@ public class VisitorFragment extends Fragment {
         recyclerView.getAdapter().notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
     }
+
 }

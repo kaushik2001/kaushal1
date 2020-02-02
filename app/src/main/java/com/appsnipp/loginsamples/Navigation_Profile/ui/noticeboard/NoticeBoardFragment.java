@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -51,6 +52,7 @@ public class NoticeBoardFragment extends Fragment {
     AlertDialog.Builder builder;
     EditText ntf_head,ntf_desc;
     Button Sv;
+    SwipeRefreshLayout swipe;
     notice_adapter ada;
     String ntfs_head,ntfs_desc;
     private NoticeBoardViewModel noticeBoardViewModel;
@@ -80,16 +82,42 @@ public class NoticeBoardFragment extends Fragment {
 //                li.add(data2[i]);
 //            }
         recyclerView=(RecyclerView) root.findViewById(R.id.noticerecycle);
+        swipe=(SwipeRefreshLayout) root.findViewById(R.id.swipe_notice);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadnotice();
+                swipe.setRefreshing(false);
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+       loadnotice();
+
+
+
+
+        return root;
+    }
+
+
+    public void loadnotice()
+    {
         Api api=ApiClient.getClient().create(Api.class);
         Call<notice_responce> call=api.noticedetail("noticedetail");
         call.enqueue(new Callback<notice_responce>() {
             @Override
             public void onResponse(Call<notice_responce> call, Response<notice_responce> response) {
-                li=response.body().getDe();
-                Collections.reverse(li);
-                ada=new notice_adapter(getContext(),li);
-                recyclerView.setAdapter(ada);
+                if (response.body().getSuccess()==200) {
+                    li=response.body().getDe();
+                    Collections.reverse(li);
+                    ada=new notice_adapter(getContext(),li);
+                    recyclerView.setAdapter(ada);
+                }
+                else {
+                    Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
 
             @Override
@@ -98,11 +126,6 @@ public class NoticeBoardFragment extends Fragment {
             }
         });
 
-
-
-
-
-        return root;
     }
     private void runLayoutanimation (RecyclerView recyclerView)
     {

@@ -37,7 +37,13 @@
             android:overScrollMode="never"
             android:fillViewport="true">
 
-
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_event"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_85sdp">
             <android.support.v7.widget.RecyclerView
                 android:layoutAnimation="@anim/layout_animation_from_right"
                 android:id="@+id/event_recycle"
@@ -46,7 +52,7 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_85sdp"/>
-
+            </android.support.v4.widget.SwipeRefreshLayout>
         </android.support.v4.widget.NestedScrollView>
     </FrameLayout>
 </LinearLayout>

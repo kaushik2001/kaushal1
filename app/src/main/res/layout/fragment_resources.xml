@@ -29,12 +29,20 @@
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:overScrollMode="never">
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_resource"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_85sdp">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_85sdp"
             android:layoutAnimation="@anim/layout_animation_slide_from_bottom"
             android:id="@+id/list_res"/>
+            </android.support.v4.widget.SwipeRefreshLayout>
         </android.support.v4.widget.NestedScrollView>
     </FrameLayout>
 

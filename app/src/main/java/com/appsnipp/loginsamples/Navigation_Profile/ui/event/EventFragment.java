@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class EventFragment extends Fragment {
     RecyclerView recyclerView;
     FloatingActionButton f;
     event_adapter ev;
+    SwipeRefreshLayout swipe;
     AlertDialog.Builder builder;
     List<event_get_set> li;
     EditText etf_name,etf_place,etf_member,etf_date,etf_time;
@@ -59,7 +61,16 @@ public class EventFragment extends Fragment {
                 ViewModelProviders.of(this).get(EventViewModel.class);
         View root = inflater.inflate(R.layout.fragment_event, container, false);
         recyclerView=(RecyclerView) root.findViewById(R.id.event_recycle);
+        swipe=(SwipeRefreshLayout) root.findViewById(R.id.swipe_event);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadevent();
+                swipe.setRefreshing(false);
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        loadevent();
 //        li=new ArrayList<>();
 //        event_data data[] ={new event_data("diwali","party plot","5 member","23/04/2019","2:45 pm")
 //        ,new event_data("holi","play ground","6 member","23/06/2019","7:40 am")
@@ -71,16 +82,29 @@ public class EventFragment extends Fragment {
 //        for(int i=0;i< data.length;i++){
 //            li.add(data[i]);
 //        }
+
+
+
+        return root;
+    }
+    public void loadevent()
+    {
         Api api= ApiClient.getClient().create(Api.class);
         Call<event_responce> call= api.eventdetail("eventdetail");
         call.enqueue(new Callback<event_responce>() {
             @Override
             public void onResponse(Call<event_responce> call, Response<event_responce> response) {
-                li=response.body().getDe();
-                Collections.reverse(li);
-                ev=new event_adapter(getContext(),li);
+                if (response.body().getSuccess()==200) {
+                    li=response.body().getDe();
+                    Collections.reverse(li);
+                    ev=new event_adapter(getContext(),li);
 
-                recyclerView.setAdapter(ev);
+                    recyclerView.setAdapter(ev);
+                }
+                else {
+                    Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+
+                }
             }
 
             @Override
@@ -91,8 +115,5 @@ public class EventFragment extends Fragment {
 
 
 
-
-
-        return root;
     }
 }
