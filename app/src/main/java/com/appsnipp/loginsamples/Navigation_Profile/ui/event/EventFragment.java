@@ -75,8 +75,7 @@ public class EventFragment extends Fragment {
                     @Override public void run() {
                         loadevent();
                         swipe.setRefreshing(false);
-                        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
-                        recyclerView.setLayoutAnimation(layoutAnimationController);
+
                     }
                 }, 2000);
                // swipe.setRefreshing(false);
@@ -113,6 +112,9 @@ public class EventFragment extends Fragment {
                     ev=new event_adapter(getContext(),li);
 
                     recyclerView.setAdapter(ev);
+                    LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
+                    recyclerView.setLayoutAnimation(layoutAnimationController);
+
                 }
                 else {
                     Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
@@ -128,5 +130,13 @@ public class EventFragment extends Fragment {
 
 
 
+    }
+    public void anit()
+    {
+        Context context=recyclerView.getContext();
+        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(context,R.anim.layout_animation_from_right);
+        recyclerView.setLayoutAnimation(layoutAnimationController);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
     }
 }

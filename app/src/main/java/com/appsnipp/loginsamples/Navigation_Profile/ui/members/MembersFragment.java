@@ -18,21 +18,32 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appsnipp.loginsamples.R;
-import com.appsnipp.loginsamples.event_recycle_view.event_adapter;
-import com.appsnipp.loginsamples.event_recycle_view.event_data;
+import com.appsnipp.loginsamples.apiinterface.Api;
+import com.appsnipp.loginsamples.apiinterface.ApiClient;
+
+import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.member_get_set;
+
 import com.appsnipp.loginsamples.member_recycle.member_adapter;
-import com.appsnipp.loginsamples.member_recycle.member_data;
+
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MembersFragment extends Fragment {
 
     RecyclerView recyclerView;
-    List<member_data> lia;
-    Button b1,b2,b3,b4,b5,b6;
+    List<member_get_set> lia;
+    Button b1, b2, b3, b4, b5, b6;
+    member_adapter me;
     private MembersViewModel membersViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,50 +51,51 @@ public class MembersFragment extends Fragment {
         membersViewModel =
                 ViewModelProviders.of(this).get(MembersViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_member, container, false);
-       b1=(Button) root.findViewById(R.id.mb_1);
-        b2=(Button) root.findViewById(R.id.mb_2);
-        b3=(Button) root.findViewById(R.id.mb_3);
-        b4=(Button) root.findViewById(R.id.mb_4);
-        b5=(Button) root.findViewById(R.id.mb_5);
-        b6=(Button) root.findViewById(R.id.mb_6);
+        b1 = (Button) root.findViewById(R.id.mb_1);
+        b2 = (Button) root.findViewById(R.id.mb_2);
+        b3 = (Button) root.findViewById(R.id.mb_3);
+        b4 = (Button) root.findViewById(R.id.mb_4);
+        b5 = (Button) root.findViewById(R.id.mb_5);
+        b6 = (Button) root.findViewById(R.id.mb_6);
 
 
-        recyclerView=(RecyclerView) root.findViewById(R.id.member_recycle);
-        lia=new ArrayList<>();
-        final member_data dataa[]={new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")};
-        final member_data datab[]={new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")};
-        final member_data datac[]={new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("c-304","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")};
-        final member_data datad[]={new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
-                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")};
-        final member_data datae[]={new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")};
-        final member_data dataf[]={new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("f-304","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
-                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")};
-
-        for(int i=0;i< dataa.length;i++) {
-            lia.add(dataa[i]);
-        }
+        recyclerView = (RecyclerView) root.findViewById(R.id.member_recycle);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        lia=new ArrayList<>();
+//        final member_data dataa[]={new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("a-301","kaushal","7383846827","kaushal12@gmail.com","4 member")};
+//        final member_data datab[]={new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("b-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")};
+//        final member_data datac[]={new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("c-304","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("c-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")};
+//        final member_data datad[]={new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")
+//                ,new member_data("d-301","kaushal","7383846827","kaushal12@gmail.com","4 member")};
+//        final member_data datae[]={new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("e-303","priyanshu","1111111111","kdhduahu@gmail.com","5 member")};
+//        final member_data dataf[]={new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("f-304","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")
+//                ,new member_data("f-303","kaushik","1111111111","kdhduahu@gmail.com","5 member")};
+//
+//        for(int i=0;i< dataa.length;i++) {
+//            lia.add(dataa[i]);
+//        }
 
         b1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -103,18 +115,10 @@ public class MembersFragment extends Fragment {
                 b6.setTextColor(getResources().getColor(R.color.primaryTextColor));
 
 
+               // lia.clear();
 
-                lia.clear();
-                for(int i=0;i< dataa.length;i++) {
+                loadmember("a");
 
-
-                    lia.add(dataa[i]);
-                }
-
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                    anit();
 
             }
         });
@@ -138,15 +142,9 @@ public class MembersFragment extends Fragment {
                 b6.setTextColor(getResources().getColor(R.color.primaryTextColor));
 
 
-                                lia.clear();
-                for(int i=0;i< datab.length;i++) {
+               // lia.clear();
+                loadmember("b");
 
-                    lia.add(datab[i]);
-                }
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                anit();
 
             }
         });
@@ -168,15 +166,9 @@ public class MembersFragment extends Fragment {
                 b5.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b6.setTextColor(getResources().getColor(R.color.primaryTextColor));
 
-                lia.clear();
-                for(int i=0;i< datac.length;i++) {
+                //lia.clear();
+                loadmember("c");
 
-                    lia.add(datac[i]);
-                }
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                anit();
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
@@ -197,15 +189,9 @@ public class MembersFragment extends Fragment {
                 b5.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b6.setTextColor(getResources().getColor(R.color.primaryTextColor));
 
-                lia.clear();
-                for(int i=0;i< datad.length;i++) {
+              //  lia.clear();
+                loadmember("d");
 
-                    lia.add(datad[i]);
-                }
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                anit();
             }
         });
         b5.setOnClickListener(new View.OnClickListener() {
@@ -225,16 +211,9 @@ public class MembersFragment extends Fragment {
                 b4.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b1.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b6.setTextColor(getResources().getColor(R.color.primaryTextColor));
-                lia.clear();
-                for(int i=0;i< datae.length;i++) {
+             //   lia.clear();
+                loadmember("e");
 
-                    lia.add(datae[i]);
-                }
-
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                anit();
             }
         });
         b6.setOnClickListener(new View.OnClickListener() {
@@ -255,33 +234,49 @@ public class MembersFragment extends Fragment {
                 b4.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b5.setTextColor(getResources().getColor(R.color.primaryTextColor));
                 b1.setTextColor(getResources().getColor(R.color.primaryTextColor));
-                lia.clear();
-                for(int i=0;i< dataf.length;i++) {
+              //  lia.clear();
 
-                    lia.add(dataf[i]);
-                }
 
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    member_adapter ev=new member_adapter(lia);
-                    recyclerView.setAdapter(ev);
-                anit();
+                loadmember("f");
+
 
             }
         });
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        member_adapter ev=new member_adapter(lia);
-        recyclerView.setAdapter(ev);
+        loadmember("a");
         return root;
     }
+    public void loadmember(String s) {
 
-public void anit()
-{
-    Context context=recyclerView.getContext();
-    LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(context,R.anim.layout_animation_from_right);
-    recyclerView.setLayoutAnimation(layoutAnimationController);
-    recyclerView.getAdapter().notifyDataSetChanged();
-    recyclerView.scheduleLayoutAnimation();
-}
+
+        Api api = ApiClient.getClient().create(Api.class);
+        Call<member_responce> call = api.membersdetail("membersdetail", s);
+call.enqueue(new Callback<member_responce>() {
+    @Override
+    public void onResponse(Call<member_responce> call, Response<member_responce> response) {
+
+        if (response.body().getSuccess() == 200) {
+            lia = response.body().getDe();
+            Collections.reverse(lia);
+            me = new member_adapter(getContext(), lia);
+            recyclerView.setAdapter(me);
+            LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
+            recyclerView.setLayoutAnimation(layoutAnimationController);
+
+        } else {
+            Toast.makeText(getContext(), response.body().getMessage() + "", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    @Override
+    public void onFailure(Call<member_responce> call, Throwable t) {
+        Toast.makeText(getContext(), t.getLocalizedMessage() + "", Toast.LENGTH_SHORT).show();
+
+    }
+});
+
+
+    }
 
 
 

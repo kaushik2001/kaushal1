@@ -75,8 +75,7 @@ public class ResourceFragment extends Fragment {
                     @Override public void run() {
                         loadresource();
                         swipe.setRefreshing(false);
-                        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_slide_from_bottom);
-                        recyclerView.setLayoutAnimation(layoutAnimationController);
+
 
                     }
                 }, 2000);
@@ -115,6 +114,8 @@ public class ResourceFragment extends Fragment {
                     Collections.reverse(li);
                     ev=new resource_adapter(getContext(),li);
                     recyclerView.setAdapter(ev);
+                    LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_slide_from_bottom);
+                    recyclerView.setLayoutAnimation(layoutAnimationController);
                 }
                 else {
                     Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();

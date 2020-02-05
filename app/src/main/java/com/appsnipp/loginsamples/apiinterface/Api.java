@@ -2,6 +2,7 @@ package com.appsnipp.loginsamples.apiinterface;
 
 import com.appsnipp.loginsamples.apiinterface.responce.event_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
+import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.notice_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.resource_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.visidetail_responce;
@@ -62,5 +63,14 @@ public interface Api {
     Call<visidetail_responce> visidetail(
             @Field("gatekvisidetail") String gatekvisidetail
 
+    );
+
+
+
+    @FormUrlEncoded
+    @POST("membersapi.php")
+    Call<member_responce> membersdetail(
+            @Field("membersdetail") String membersdetail,
+            @Field("blockno") String blockno
     );
 }

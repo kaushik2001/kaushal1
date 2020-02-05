@@ -64,8 +64,7 @@ public class VisitorFragment extends Fragment {
                     @Override public void run() {
                         loadvisitior();
                         swipe.setRefreshing(false);
-                        LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
-                        recyclerView.setLayoutAnimation(layoutAnimationController);
+
                     }
                 }, 2000);
            //   swipe.setRefreshing(false);
@@ -105,6 +104,8 @@ public class VisitorFragment extends Fragment {
                     Collections.reverse(li);
                     vi=new visitior_adapter(getContext(),li);
                     recyclerView.setAdapter(vi);
+                    LayoutAnimationController layoutAnimationController= AnimationUtils.loadLayoutAnimation(getContext(),R.anim.layout_animation_from_right);
+                    recyclerView.setLayoutAnimation(layoutAnimationController);
                 }
                 else {
                     Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();

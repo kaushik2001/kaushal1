@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_margin="@dimen/_15sdp"
             android:backgroundTint="@color/whiteTextColor"
-            android:layout_height="@dimen/_87sdp">
+            android:layout_height="@dimen/_75sdp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,27 +107,6 @@
                     android:textSize="13sp"
                     />
 
-                <TextView
-                    android:layout_below="@+id/member_email"
-                    android:id="@+id/member_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Members : "
-
-                    android:textSize="13sp"
-                    />
-
-                <TextView
-                    android:layout_alignStart="@+id/member_name2"
-                    android:layout_toRightOf="@id/member_total"
-                    android:layout_below="@+id/member_email2"
-                    android:id="@+id/member_total2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="4 member "
-                    android:textSize="13sp"
-                    />
 
             </RelativeLayout>
 
