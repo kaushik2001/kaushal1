@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.navigation.Navigation;
+
 import com.appsnipp.loginsamples.Navigation_Profile.ui.account.AccountFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.document.DocumentFragment;
@@ -59,82 +61,61 @@ public class DashBoardFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                fragment = new AccountFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_account2);
+//                fragment = new AccountFragment();
+//                transaction = manager.beginTransaction();
+//                transaction.replace(R.id.nav_host_fragment, fragment);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
 
             }
         });
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new ResourceFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_resource);
+//
+//                fragment = new ResourceFragment();
+//                transaction = manager.beginTransaction();
+//                transaction.replace(R.id.nav_host_fragment, fragment);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
             }
         });
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new DocumentFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_document);
             }
         });
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new MembersFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_member);
             }
         });
         c5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new EventFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_event);
             }
         });
         c6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new ElectionFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_election);
             }
         });
         c7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new ComplainFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_complain);
             }
         });
         c8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment = new VisitorFragment();
-                transaction = manager.beginTransaction();
-                transaction.replace(R.id.nav_host_fragment, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_nav_home_to_nav_visitor);
             }
         });
         return root;

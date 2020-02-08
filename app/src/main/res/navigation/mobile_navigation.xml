@@ -9,7 +9,41 @@
         android:id="@+id/nav_home"
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_account2"
+            app:destination="@id/nav_account" />
+        <action
+            android:id="@+id/action_nav_home_to_navB_building2"
+            app:destination="@id/navB_building" />
+        <action
+            android:id="@+id/action_nav_home_to_navB_notice3"
+            app:destination="@id/navB_notice" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_resource"
+            app:destination="@id/nav_resource" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_complain"
+            app:destination="@id/nav_complain" />
+        <action
+            android:id="@+id/action_nav_home_to_navB_profile"
+            app:destination="@id/navB_profile" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_visitor"
+            app:destination="@id/nav_visitor" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_election"
+            app:destination="@id/nav_election" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_document"
+            app:destination="@id/nav_document" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_event"
+            app:destination="@id/nav_event" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_member"
+            app:destination="@id/nav_member" />
+    </fragment>
     <fragment
         android:id="@+id/navB_home"
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.dashboard.DashBoardFragment"
@@ -32,11 +66,11 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_profile"-->
-<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.profile.ProfileFragment"-->
-<!--        android:label="Profile"-->
-<!--        tools:layout="@layout/fragment_profile" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_profile"-->
+    <!--        android:name="ProfileFragment"-->
+    <!--        android:label="Profile"-->
+    <!--        tools:layout="@layout/fragment_profile" />-->
 
     <fragment
         android:id="@+id/nav_account"
@@ -67,11 +101,11 @@
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.resource.ResourceFragment"
         android:label="@string/menu_resource"
         tools:layout="@layout/fragment_resources" />
-<!--    <fragment-->
-<!--        android:id="@+id/nav_building"-->
-<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.buildingdetails.BuildingDetailsFragment"-->
-<!--        android:label="@string/menu_buiding"-->
-<!--        tools:layout="@layout/fragment_buildingdetails" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_building"-->
+    <!--        android:name="BuildingDetailsFragment"-->
+    <!--        android:label="@string/menu_buiding"-->
+    <!--        tools:layout="@layout/fragment_buildingdetails" />-->
 
     <fragment
         android:id="@+id/nav_visitor"
@@ -83,11 +117,11 @@
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.event.EventFragment"
         android:label="@string/menu_event"
         tools:layout="@layout/fragment_event" />
-<!--    <fragment-->
-<!--        android:id="@+id/nav_notice"-->
-<!--        android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.noticeboard.NoticeBoardFragment"-->
-<!--        android:label="@string/menu_notice"-->
-<!--        tools:layout="@layout/fragment_notice" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_notice"-->
+    <!--        android:name="NoticeBoardFragment"-->
+    <!--        android:label="@string/menu_notice"-->
+    <!--        tools:layout="@layout/fragment_notice" />-->
     <fragment
         android:id="@+id/nav_complain"
         android:name="com.appsnipp.loginsamples.Navigation_Profile.ui.complain.ComplainFragment"
