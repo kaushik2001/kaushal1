@@ -73,4 +73,14 @@ public interface Api {
             @Field("membersdetail") String membersdetail,
             @Field("blockno") String blockno
     );
+
+
+    @FormUrlEncoded
+    @POST("forgrtpass.php")
+    Call<CommanResponse> changepass(
+            @Field("changepass") String changepass,
+            @Field("mobno") String mobno,
+            @Field("password") String password
+
+    );
 }
