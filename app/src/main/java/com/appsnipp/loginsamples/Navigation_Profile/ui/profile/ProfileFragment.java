@@ -72,7 +72,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class ProfileFragment extends Fragment implements TabLayout.OnTabSelectedListener {
+public class ProfileFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     FragmentManager manager;
@@ -96,9 +96,9 @@ TextView name,mob;
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_profile, container, false);
-        tabLayout = root.findViewById(R.id.tablayout_tl);
+      //  tabLayout = root.findViewById(R.id.tablayout_tl);
         mCompressor = new FileCompressor(getContext());
-        viewPager = root.findViewById(R.id.tablayout_viewpager);
+      //  viewPager = root.findViewById(R.id.tablayout_viewpager);
         manager = getActivity().getSupportFragmentManager();
 name=(TextView) root.findViewById(R.id.user_name);
         mob=(TextView) root.findViewById(R.id.user_mob);
@@ -117,10 +117,10 @@ name=(TextView) root.findViewById(R.id.user_name);
 
 
 
-        viewPager.setAdapter(new ProfileFragment.adapter(manager));
-        viewPager.setOffscreenPageLimit(3);
-        tabLayout.addOnTabSelectedListener(this);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+//        viewPager.setAdapter(new ProfileFragment.adapter(manager));
+//        viewPager.setOffscreenPageLimit(3);
+//        tabLayout.addOnTabSelectedListener(this);
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         img = root.findViewById(R.id.pre_dp);
 
@@ -181,58 +181,58 @@ name=(TextView) root.findViewById(R.id.user_name);
         mob.setText(user.getMobno());
     }
 
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        viewPager.setCurrentItem(tab.getPosition());
-
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
-
-    }
-
-
-    public class adapter extends FragmentStatePagerAdapter {
-
-        public adapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            fragment = null;
-            if (position == 0) {
-
-                fragment = new personaldetails();
-
-            }
-            if (position == 1) {
-
-                fragment = new professionaldetails();
-
-            }
-            if (position == 2) {
-
-                fragment = new forgetpassword();
-
-            }
-
-
-            return fragment;
-
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-    }
+//    @Override
+//    public void onTabSelected(TabLayout.Tab tab) {
+//        viewPager.setCurrentItem(tab.getPosition());
+//
+//    }
+//
+//    @Override
+//    public void onTabUnselected(TabLayout.Tab tab) {
+//
+//    }
+//
+//    @Override
+//    public void onTabReselected(TabLayout.Tab tab) {
+//
+//    }
+//
+//
+//    public class adapter extends FragmentStatePagerAdapter {
+//
+//        public adapter(FragmentManager fm) {
+//            super(fm);
+//        }
+//
+//        @Override
+//        public Fragment getItem(int position) {
+//            fragment = null;
+//            if (position == 0) {
+//
+//                fragment = new personaldetails();
+//
+//            }
+//            if (position == 1) {
+//
+//                fragment = new professionaldetails();
+//
+//            }
+//            if (position == 2) {
+//
+//                fragment = new forgetpassword();
+//
+//            }
+//
+//
+//            return fragment;
+//
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return 3;
+//        }
+//    }
 
     private void selectImage() {
         final CharSequence[] items = {

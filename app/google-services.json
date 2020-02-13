@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "330792318702",
+    "firebase_url": "https://sbsmember-bebba.firebaseio.com",
+    "project_id": "sbsmember-bebba",
+    "storage_bucket": "sbsmember-bebba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330792318702:android:2a64ea6f4d07f73cfc65ff",
+        "android_client_info": {
+          "package_name": "com.appsnipp.loginsamples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330792318702-jikk02ok3c37qqjvbgvholahupobr5ao.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appsnipp.loginsamples",
+            "certificate_hash": "73161bd8a98f6d3875375cae5c87f79ba235c08f"
+          }
+        },
+        {
+          "client_id": "330792318702-e5cc0u7qj0vl3uce6uu29ouaebdmfk1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaHUMtwd97YexRiZzfgpCmWTa1SG2A7Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330792318702-e5cc0u7qj0vl3uce6uu29ouaebdmfk1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
