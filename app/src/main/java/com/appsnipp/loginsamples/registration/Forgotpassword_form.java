@@ -95,6 +95,11 @@ public class Forgotpassword_form extends AppCompatActivity implements TextWatche
                             i.putExtra("mob",mono.getText().toString().trim());
                             startActivity(i);
                         }
+                        else
+                        {
+                            Toast.makeText(Forgotpassword_form.this, "otp not match", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
                 });
     }
