@@ -3,14 +3,10 @@ package com.appsnipp.loginsamples.registration;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appsnipp.loginsamples.LoginActivity;
 import com.appsnipp.loginsamples.R;
 import com.appsnipp.loginsamples.apiinterface.Api;
 import com.appsnipp.loginsamples.apiinterface.ApiClient;
@@ -67,7 +63,7 @@ conformpassword=(EditText) findViewById(R.id.cpass);
             String llname=i1.getStringExtra("ilname");
             String mobino=i1.getStringExtra("imobno");
             String email=i1.getStringExtra("iemail");
-
+            String role=i1.getStringExtra("irole");
             String houseno=i1.getStringExtra("ihouseno");
 
             Api api= ApiClient.getClient().create(Api.class);

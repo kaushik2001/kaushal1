@@ -2,7 +2,6 @@ package com.appsnipp.loginsamples.registration;
 
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -13,16 +12,13 @@ import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.appsnipp.loginsamples.BuildConfig;
-import com.appsnipp.loginsamples.LoginActivity;
 import com.appsnipp.loginsamples.R;
 import com.appsnipp.loginsamples.camera.FileCompressor;
 import com.bumptech.glide.Glide;

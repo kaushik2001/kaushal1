@@ -3,22 +3,17 @@ package com.appsnipp.loginsamples;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appsnipp.loginsamples.Navigation_Profile.Navigation_Activity;
+import com.appsnipp.loginsamples.Otpverification.Forgotpassword_form;
 import com.appsnipp.loginsamples.apiinterface.Api;
 import com.appsnipp.loginsamples.apiinterface.ApiClient;
-import com.appsnipp.loginsamples.apiinterface.CommanResponse;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
-import com.appsnipp.loginsamples.registration.Forgotpassword_form;
 import com.appsnipp.loginsamples.registration.Registration;
-import com.appsnipp.loginsamples.registration.password;
 import com.appsnipp.loginsamples.storage.sareprefrencelogin;
 
 import retrofit2.Call;
