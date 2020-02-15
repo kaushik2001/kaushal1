@@ -51,7 +51,7 @@ public class forget_pass_change extends AppCompatActivity {
         String s1 = password.getText().toString();
         String s2 = conformpassword.getText().toString();
         boolean k = true;
-        if (s1.isEmpty() && s1.length() < 8) {
+        if (s1.isEmpty() || s1.length() < 8) {
             password.setError(" 8 character necessary");
             k = false;
         }
