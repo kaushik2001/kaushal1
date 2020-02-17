@@ -1,5 +1,6 @@
 package com.appsnipp.loginsamples.apiinterface;
 
+import com.appsnipp.loginsamples.apiinterface.Paytm.Checksum;
 import com.appsnipp.loginsamples.apiinterface.responce.event_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
 import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
@@ -8,7 +9,6 @@ import com.appsnipp.loginsamples.apiinterface.responce.res_book_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.resource_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.visidetail_responce;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -115,5 +115,25 @@ public interface Api {
 
     );
 
+    @FormUrlEncoded
+    @POST("resourseregister.php")
+    Call<CommanResponse> book_check(
+            @Field("resourcecheck") String resourcecheck,
+            @Field("res_name") String res_name,
+            @Field("date") String date
+    );
 
+
+    @FormUrlEncoded
+    @POST("generateChecksum.php")
+    Call<Checksum> getChecksum(
+            @Field("MID") String mId,
+            @Field("ORDER_ID") String orderId,
+            @Field("CUST_ID") String custId,
+            @Field("CHANNEL_ID") String channelId,
+            @Field("TXN_AMOUNT") String txnAmount,
+            @Field("WEBSITE") String website,
+            @Field("CALLBACK_URL") String callbackUrl,
+            @Field("INDUSTRY_TYPE_ID") String industryTypeId
+    );
 }

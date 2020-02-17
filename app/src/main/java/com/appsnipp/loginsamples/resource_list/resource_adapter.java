@@ -38,6 +38,7 @@ public class resource_adapter extends RecyclerView.Adapter<resource_adapter.View
             public void onClick(View view) {
                 Intent i=new Intent(mcontext,book_res_act.class);
                 i.putExtra("res_name",data.get(viewHolder.getAdapterPosition()).getName());
+                i.putExtra("price",data.get(viewHolder.getAdapterPosition()).getCharge());
                 mcontext.startActivity(i);
 
             }

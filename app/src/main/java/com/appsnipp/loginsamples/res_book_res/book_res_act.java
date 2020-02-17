@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,43 +26,57 @@ import android.widget.Toast;
 import com.appsnipp.loginsamples.R;
 import com.appsnipp.loginsamples.apiinterface.Api;
 import com.appsnipp.loginsamples.apiinterface.ApiClient;
+import com.appsnipp.loginsamples.apiinterface.Paytm.Checksum;
 import com.appsnipp.loginsamples.apiinterface.CommanResponse;
+import com.appsnipp.loginsamples.apiinterface.Paytm.Constants;
+import com.appsnipp.loginsamples.apiinterface.Paytm.paytm;
 import com.appsnipp.loginsamples.apiinterface.responce.res_book_responce;
-import com.appsnipp.loginsamples.apiinterface.responce.resource_responce;
 import com.appsnipp.loginsamples.apiinterface.responce_get_set.User;
 import com.appsnipp.loginsamples.apiinterface.responce_get_set.res_book_get_set;
-import com.appsnipp.loginsamples.resource_list.resource_adapter;
 import com.appsnipp.loginsamples.storage.sareprefrencelogin;
+import com.paytm.pgsdk.PaytmOrder;
+import com.paytm.pgsdk.PaytmPGService;
+import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class book_res_act extends AppCompatActivity {
+public class book_res_act extends AppCompatActivity implements PaytmPaymentTransactionCallback {
     RecyclerView recyclerView;
     res_book_adapter ev;
     AlertDialog.Builder builder;
-    String res_namee;
+    String res_namee,price,book_date,book_time;
     List<res_book_get_set> li;
     SwipeRefreshLayout swipe;
     EditText res_time,res_date;
     Button sv;
     TextView t;
+    User user= sareprefrencelogin.getInstance(getApplication()).getuser();
+    String book_name=user.getFname()+" "+user.getLname();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_res_act);
+
+
+
+
+
         Intent i=getIntent();
         res_namee=i.getStringExtra("res_name");
+        price=i.getStringExtra("price");
         t=(TextView) findViewById(R.id.nm);
         t.setText(res_namee);
         recyclerView=(RecyclerView) findViewById(R.id.res_book_recycle);
@@ -243,20 +258,21 @@ public class book_res_act extends AppCompatActivity {
         sv.findViewById(R.id.res_book_btn_book).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String book_date=res_date.getText().toString().trim();
-                String book_time=res_time.getText().toString().trim();
-                User user= sareprefrencelogin.getInstance(getApplication()).getuser();
-                String book_name=user.getFname()+" "+user.getLname();
+                book_date=res_date.getText().toString().trim();
+                book_time=res_time.getText().toString().trim();
                 //res_namee for res_name
 
-
                 Api api= ApiClient.getClient().create(Api.class);
-                Call<CommanResponse> call= api.book_res("resourceregi",res_namee,book_date,book_time,book_name);
+                Call<CommanResponse> call= api.book_check("resourcecheck",res_namee,book_date);
                 call.enqueue(new Callback<CommanResponse>() {
                     @Override
                     public void onResponse(Call<CommanResponse> call, Response<CommanResponse> response) {
-                        Toast.makeText(getApplicationContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
-                        alert.dismiss();
+                        if(response.body().getSuccess()==200){
+                            generateCheckSum();
+                            alert.dismiss();
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -270,5 +286,181 @@ public class book_res_act extends AppCompatActivity {
         });
 alert.show();
 
+    }
+    private void generateCheckSum() {
+
+        //getting the tax amount first.
+        String txnAmount = price;//textViewPrice.getText().toString().trim();
+
+        //creating a retrofit object.
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ApiClient.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //creating the retrofit api service
+        Api apiService = retrofit.create(Api.class);
+
+        //creating paytm object
+        //containing all the values required
+        final paytm paytm = new paytm(
+                Constants.M_ID,
+                Constants.CHANNEL_ID,
+                txnAmount,
+                Constants.WEBSITE,
+                Constants.CALLBACK_URL,
+                Constants.INDUSTRY_TYPE_ID
+        );
+
+        //creating a call object from the apiService
+        Call<Checksum> call1 = apiService.getChecksum(
+                paytm.getmId(),
+                paytm.getOrderId(),
+                paytm.getCustId(),
+                paytm.getChannelId(),
+                paytm.getTxnAmount(),
+                paytm.getWebsite(),
+                paytm.getCallBackUrl(),
+                paytm.getIndustryTypeId()
+        );
+
+        call1.enqueue(new Callback<Checksum>() {
+            @Override
+            public void onResponse(Call<Checksum> call, Response<Checksum> response) {
+                //once we get the checksum we will initiailize the payment.
+                //the method is taking the checksum we got and the paytm object as the parameter
+                initializePaytmPayment(response.body().getChecksumHash(), paytm);
+            }
+
+            @Override
+            public void onFailure(Call<Checksum> call, Throwable t) {
+                Toast.makeText(getApplicationContext() , t.getLocalizedMessage()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void initializePaytmPayment(String checksumHash, paytm paytm) {
+
+        //getting paytm service
+        PaytmPGService Service = PaytmPGService.getStagingService();
+
+        //use this when using for production
+        //PaytmPGService Service = PaytmPGService.getProductionService();
+
+        //creating a hashmap and adding all the values required
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("MID", Constants.M_ID);
+        paramMap.put("ORDER_ID", paytm.getOrderId());
+        paramMap.put("CUST_ID", paytm.getCustId());
+        paramMap.put("CHANNEL_ID", paytm.getChannelId());
+        paramMap.put("TXN_AMOUNT", paytm.getTxnAmount());
+        paramMap.put("WEBSITE", paytm.getWebsite());
+        paramMap.put("CALLBACK_URL", paytm.getCallBackUrl());
+        paramMap.put("CHECKSUMHASH", checksumHash);
+        paramMap.put("INDUSTRY_TYPE_ID", paytm.getIndustryTypeId());
+
+
+        //creating a paytm order object using the hashmap
+        PaytmOrder order = new PaytmOrder(paramMap);
+
+        //intializing the paytm service
+        Service.initialize(order, null);
+
+        //finally starting the payment transaction
+        Service.startPaymentTransaction(this, true, true, this);
+
+    }
+
+//        @Override
+//    public void onTransactionResponse(Bundle inResponse) {
+//
+//    }
+//
+//    @Override
+//    public void networkNotAvailable() {
+//
+//    }
+//
+//    @Override
+//    public void clientAuthenticationFailed(String inErrorMessage) {
+//
+//    }
+//
+//    @Override
+//    public void someUIErrorOccurred(String inErrorMessage) {
+//
+//    }
+//
+//    @Override
+//    public void onErrorLoadingWebPage(int iniErrorCode, String inErrorMessage, String inFailingUrl) {
+//
+//    }
+//
+//    @Override
+//    public void onBackPressedCancelTransaction() {
+//
+//    }
+//
+//    @Override
+//    public void onTransactionCancel(String inErrorMessage, Bundle inResponse) {
+//
+//    }
+
+    private void verifyTransactionStatus(String orderId) {
+
+        if(orderId=="TXN_SUCCESS"){
+            Api api= ApiClient.getClient().create(Api.class);
+            Call<CommanResponse> call= api.book_res("resourceregi",res_namee,book_date,book_time,book_name);
+            call.enqueue(new Callback<CommanResponse>() {
+                @Override
+                public void onResponse(Call<CommanResponse> call, Response<CommanResponse> response) {
+                    Toast.makeText(getApplicationContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<CommanResponse> call, Throwable t) {
+                    Toast.makeText(getApplicationContext() , t.getLocalizedMessage()+"", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    //all these overriden method is to detect the payment result accordingly
+    @Override
+    public void onTransactionResponse(Bundle bundle) {
+
+        Toast.makeText(this,bundle.toString(), Toast.LENGTH_LONG).show();
+        String orderId = bundle.getString("STATUS");
+        verifyTransactionStatus(orderId);
+    }
+
+    @Override
+    public void networkNotAvailable() {
+        Toast.makeText(this, "Network error", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void clientAuthenticationFailed(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void someUIErrorOccurred(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onErrorLoadingWebPage(int i, String s, String s1) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onBackPressedCancelTransaction() {
+        Toast.makeText(this, "Back Pressed", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onTransactionCancel(String s, Bundle bundle) {
+        Toast.makeText(this, s + bundle.toString(), Toast.LENGTH_LONG).show();
     }
 }
