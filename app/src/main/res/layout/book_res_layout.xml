@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            app:cardElevation="5dp"
+            android:backgroundTint="@color/colorAccent"
+            app:cardCornerRadius="@dimen/_13sdp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/bres_name"
+                android:textSize="19sp"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/whiteTextColor"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="C-301"/>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:backgroundTint="@color/whiteTextColor"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_15sdp">
+
+
+
+
+                <TextView
+                    android:id="@+id/vt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Booked By :"
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_toRightOf="@+id/vt_name"
+                    android:id="@+id/bres_bookname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mokariya kaushik "
+                    android:layout_marginLeft="@dimen/_33sdp"
+                    android:textSize="13sp"
+                    />
+                <TextView
+                    android:id="@+id/vt_mobile"
+                    android:layout_below="@+id/vt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Date : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_below="@+id/bres_bookname"
+                    android:id="@+id/bres_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mokariya kaushik "
+                    android:layout_toRightOf="@+id/vt_mobile"
+                    android:textSize="13sp"
+                    android:layout_alignStart="@+id/bres_bookname"
+                    />
+                <TextView
+                    android:layout_below="@+id/vt_mobile"
+                    android:id="@+id/vt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Time : "
+
+                    android:textSize="13sp"
+                    />
+
+                <TextView
+                    android:layout_alignStart="@+id/bres_bookname"
+                    android:layout_below="@+id/bres_date"
+                    android:id="@+id/bres_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30/12/2020 "
+                    android:layout_toRightOf="@+id/vt_date"
+                    android:textSize="13sp"
+                    />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+
+</RelativeLayout>

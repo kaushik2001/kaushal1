@@ -79,7 +79,7 @@ public class ProfileFragment extends Fragment {
     Fragment fragment;
     AlertDialog.Builder builder;
 
-TextView name,mob;
+    TextView name,mob;
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_GALLERY_PHOTO = 2;
     File mPhotoFile;
@@ -96,21 +96,37 @@ TextView name,mob;
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_profile, container, false);
-      //  tabLayout = root.findViewById(R.id.tablayout_tl);
+        //  tabLayout = root.findViewById(R.id.tablayout_tl);
         mCompressor = new FileCompressor(getContext());
-      //  viewPager = root.findViewById(R.id.tablayout_viewpager);
+        //  viewPager = root.findViewById(R.id.tablayout_viewpager);
         manager = getActivity().getSupportFragmentManager();
-name=(TextView) root.findViewById(R.id.user_name);
+        name=(TextView) root.findViewById(R.id.user_name);
         mob=(TextView) root.findViewById(R.id.user_mob);
 
 
-        mob.setOnClickListener(new View.OnClickListener() {
+        root.findViewById(R.id.exit_pro).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sareprefrencelogin.getInstance(getContext()).clear();
                 Intent i=new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
                 getActivity().finish();
+            }
+        });
+
+        root.findViewById(R.id.changepass_pro).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder= new AlertDialog.Builder(getContext());
+                LayoutInflater inflater=(LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v=inflater.inflate(R.layout.fragment_forgetpassword,null);
+                builder.setView(v);
+                builder.setCancelable(true);
+                AlertDialog alert=builder.create();
+
+                //alert.dismiss();
+                alert.show();
+
             }
         });
 
@@ -168,9 +184,43 @@ name=(TextView) root.findViewById(R.id.user_name);
         });
 
 
+
+        root.findViewById(R.id.personal_pro).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder= new AlertDialog.Builder(getContext());
+                LayoutInflater inflater=(LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v=inflater.inflate(R.layout.fragment_personaldetails,null);
+                builder.setView(v);
+                builder.setCancelable(true);
+                AlertDialog alert=builder.create();
+
+                //alert.dismiss();
+                alert.show();
+            }
+        });
+
+
+        root.findViewById(R.id.professional_pro).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder= new AlertDialog.Builder(getContext());
+                LayoutInflater inflater=(LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v=inflater.inflate(R.layout.fragment_professionaldetails,null);
+                builder.setView(v);
+                builder.setCancelable(true);
+                AlertDialog alert=builder.create();
+
+                //alert.dismiss();
+                alert.show();
+            }
+        });
+
+
         return root;
 
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -418,4 +468,5 @@ name=(TextView) root.findViewById(R.id.user_name);
             }
         }
     }
+
 }

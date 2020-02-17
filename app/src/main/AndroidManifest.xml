@@ -10,10 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Otpverification.forget_pass_change"></activity>
-
+        <activity android:name=".res_book_res.book_res_act"></activity>
+        <activity android:name=".Otpverification.forget_pass_change" />
         <activity android:name=".Bottom_Navigation_Activity" />
-
         <activity
             android:name=".Navigation_Profile.Navigation_Activity"
             android:label="@string/title_activity_navigation_"
@@ -26,9 +25,9 @@
         <activity
             android:name=".detailtest_activity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Otpverification.Forgotpassword_form"/>
-        <activity android:name=".Otpverification.Forgetpassword_otp"/>
-        <activity android:name=".registration.password"/>
+        <activity android:name=".Otpverification.Forgotpassword_form" />
+        <activity android:name=".Otpverification.Forgetpassword_otp" />
+        <activity android:name=".registration.password" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait">
@@ -38,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -48,6 +48,7 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
     </application>
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -57,12 +58,11 @@
         android:xlargeScreens="true" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera.flash" />
 
+    <uses-feature android:name="android.hardware.camera.flash" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.CAMERA" />

@@ -1,195 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".profile.professionaldetails"
     android:nestedScrollingEnabled="true">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
-        android:text="professional Details"
-        android:gravity="center_vertical"
-        android:textColor="@color/whiteTextColor"
-        android:background="@drawable/detail_design_buttontype"
-        android:layout_margin="@dimen/_5sdp"
-        android:paddingLeft="@dimen/_10sdp"
-        android:layout_gravity="center_vertical"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:drawableEnd="@drawable/icon_edit" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Employee Type"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Private"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Professional Category"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IT"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Professional Type"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IT"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/gray_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_10sdp"
+            android:text="Professional Details"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Company Name"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PD"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:text="Edit"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Destination"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Manager"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userIDTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contact"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="9547856915"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/userIDTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Employee Type" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="More About Profession"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_3sdp"/>
-    <TextView
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IT"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:layout_marginLeft="@dimen/_3sdp"
-        />
-    <View
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/gray"/>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
 
-</LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Professional Type" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Company Name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Designation" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact us" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/colorPrimary"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 </ScrollView>
