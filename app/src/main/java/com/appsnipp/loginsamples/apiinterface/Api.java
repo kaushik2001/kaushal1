@@ -1,12 +1,15 @@
 package com.appsnipp.loginsamples.apiinterface;
 
 import com.appsnipp.loginsamples.apiinterface.Paytm.Checksum;
+import com.appsnipp.loginsamples.apiinterface.responce.bill_child_responce;
+import com.appsnipp.loginsamples.apiinterface.responce.bill_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.event_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
 import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.notice_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.res_book_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.resource_responce;
+import com.appsnipp.loginsamples.apiinterface.responce.spnt_total_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.visidetail_responce;
 
 import retrofit2.Call;
@@ -135,5 +138,30 @@ public interface Api {
             @Field("WEBSITE") String website,
             @Field("CALLBACK_URL") String callbackUrl,
             @Field("INDUSTRY_TYPE_ID") String industryTypeId
+    );
+
+    @FormUrlEncoded
+    @POST("accountbill.php")
+    Call<bill_responce> accbilldetails(
+            @Field("billdetails") String billdetails
+
+    );
+
+
+    @FormUrlEncoded
+    @POST("accountbill.php")
+    Call<bill_child_responce> billchild(
+            @Field("billspntdetails") String billspntdetails,
+            @Field("bill_id") String bill_id
+
+
+    );
+    @FormUrlEncoded
+    @POST("accountbill.php")
+    Call<spnt_total_responce> spnttotal(
+            @Field("spenttotal") String spenttotal,
+            @Field("bill_id") String bill_id
+
+
     );
 }
