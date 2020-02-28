@@ -34,6 +34,9 @@ public class sareprefrencelogin {
         editor.putString("fname",user.getFname());
         editor.putString("lname",user.getLname());
         editor.putString("mobno",user.getMobno());
+        editor.putString("email",user.getEmail());
+        editor.putString("houseno",user.getHouseno());
+
         editor.apply();
     }
     public boolean islogin(){
@@ -47,7 +50,9 @@ return sharedPreferences.getInt("id",-1)!= -1;
                 sharedPreferences.getInt("id",-1),
         sharedPreferences.getString("fname",null),
         sharedPreferences.getString("lname",null),
-        sharedPreferences.getString("mobno",null)
+        sharedPreferences.getString("mobno",null),
+        sharedPreferences.getString("email",null),
+        sharedPreferences.getString("houseno",null)
 
 
 

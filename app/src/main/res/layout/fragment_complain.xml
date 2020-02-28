@@ -1,77 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteTextColor">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/_10sdp">
-        <ImageView
-            android:id="@+id/complain_img"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_135sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/detail_images" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/cmpphoto"
-            android:layout_gravity="center"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/detail_design_buttontype"
-            android:padding="@dimen/_5sdp"
-
-            android:drawableLeft="@drawable/camera_icon"
-            android:text="Choose Image"
-
-            android:textColor="@color/whiteTextColor"
-
-            />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp">
-            <EditText
-                style="@style/modifiedEditText"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Complain Title"
-                android:textSize="16sp"
-                android:layout_marginTop="@dimen/_20sdp"/>
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="match_parent">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/header" />
 
-            <EditText
-                style="@style/modifiedEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Complain Description"
-                android:textSize="16sp"
-                android:gravity="start"
-                android:inputType="textMultiLine"
-                android:maxLines="3"
-                android:scrollbars="vertical"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:gravity="center"
+                    android:text="Complain"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_100sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    app:cardCornerRadius="20dp">
 
-        <Button
-            style="@style/loginButton"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_42sdp"
-            android:layout_marginTop="@dimen/_35sdp"
-            android:layout_gravity="center"
-            android:background="@drawable/registration_br"
-            android:text="Save"
-            />
-    </LinearLayout>
-</ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        //aya image muki de priyanshu jode magay ne oyy
+
+                        <ImageView
+                            android:id="@+id/cmpphoto"
+                            android:src="@drawable/cmplogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_120sdp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/_20sdp" />
+                        <!--<Button
+android:id="@+id/cmpphoto"
+android:layout_gravity="center"
+android:layout_width="@dimen/_120sdp"
+android:layout_height="@dimen/_40sdp"
+android:layout_marginTop="@dimen/_10sdp"
+android:background="@drawable/detail_design_buttontype"
+android:padding="@dimen/_5sdp"
+
+android:drawableLeft="@drawable/camera_icon"
+android:text="Choose Image"
+
+android:textColor="@color/whiteTextColor"
+
+/>-->
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp">
+
+                            <EditText
+                                android:id="@+id/cmp_ttl_ed"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:hint="Complain Title"
+                                android:textSize="16sp" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+
+                            <EditText
+                                android:id="@+id/cmp_desc_ed"
+                                style="@style/modifiedEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="@dimen/_5sdp"
+                                android:gravity="start"
+                                android:hint="Complain Description"
+                                android:inputType="textMultiLine"
+                                android:maxLines="3"
+                                android:scrollbars="vertical"
+                                android:textSize="16sp" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/cmp_save_btn"
+                            style="@style/loginButton"
+                            android:layout_width="@dimen/_150sdp"
+                            android:layout_height="@dimen/_42sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_35sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/registration_br"
+                            android:text="Save" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

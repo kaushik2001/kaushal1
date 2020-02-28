@@ -1,6 +1,7 @@
 //noinspection GradleCompatible
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -70,6 +71,10 @@ dependencies {
 
 
     implementation 'com.paytm:pgplussdk:1.0.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

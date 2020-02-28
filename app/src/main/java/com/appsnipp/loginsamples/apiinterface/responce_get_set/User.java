@@ -2,12 +2,31 @@ package com.appsnipp.loginsamples.apiinterface.responce_get_set;
 
 public class User {
     int id;
-    String fname,lname,mobno;
-    public User(int id, String fname, String lname, String mobno) {
+    String fname,lname,mobno,email,houseno;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getHouseno() {
+        return houseno;
+    }
+
+    public void setHouseno(String houseno) {
+        this.houseno = houseno;
+    }
+
+    public User(int id, String fname, String lname, String mobno, String email, String houseno) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.mobno = mobno;
+        this.email = email;
+        this.houseno = houseno;
     }
 
     public int getId() {
