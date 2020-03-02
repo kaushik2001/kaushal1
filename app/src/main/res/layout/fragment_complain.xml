@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/whiteTextColor">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -35,94 +30,33 @@
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.CardView
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/complain_tablayout"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_100sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/tablayout_background"
+                    app:tabBackground="@drawable/tablayout_selector"
+                    app:tabSelectedTextColor="@color/colorPrimary"
+                    app:tabTextAppearance="@style/TabTextAppearance"
+                    app:tabRippleColor="@null"
+                    app:tabIndicator="@null">
+                    <android.support.design.widget.TabItem
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add \nComplain" />
+                    <android.support.design.widget.TabItem
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Complain\nDetails" />
+                </android.support.design.widget.TabLayout>
+                <android.support.v4.view.ViewPager
+                    android:layout_marginTop="@dimen/_143sdp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_100sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    app:cardCornerRadius="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-
-                        //aya image muki de priyanshu jode magay ne oyy
-
-                        <ImageView
-                            android:id="@+id/cmpphoto"
-                            android:src="@drawable/cmplogo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_120sdp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="@dimen/_20sdp" />
-                        <!--<Button
-android:id="@+id/cmpphoto"
-android:layout_gravity="center"
-android:layout_width="@dimen/_120sdp"
-android:layout_height="@dimen/_40sdp"
-android:layout_marginTop="@dimen/_10sdp"
-android:background="@drawable/detail_design_buttontype"
-android:padding="@dimen/_5sdp"
-
-android:drawableLeft="@drawable/camera_icon"
-android:text="Choose Image"
-
-android:textColor="@color/whiteTextColor"
-
-/>-->
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp">
-
-                            <EditText
-                                android:id="@+id/cmp_ttl_ed"
-                                style="@style/modifiedEditText"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginHorizontal="@dimen/_5sdp"
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:hint="Complain Title"
-                                android:textSize="16sp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp">
-
-                            <EditText
-                                android:id="@+id/cmp_desc_ed"
-                                style="@style/modifiedEditText"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginHorizontal="@dimen/_5sdp"
-                                android:gravity="start"
-                                android:hint="Complain Description"
-                                android:inputType="textMultiLine"
-                                android:maxLines="3"
-                                android:scrollbars="vertical"
-                                android:textSize="16sp" />
-
-                        </android.support.design.widget.TextInputLayout>
-
-                        <Button
-                            android:id="@+id/cmp_save_btn"
-                            style="@style/loginButton"
-                            android:layout_width="@dimen/_150sdp"
-                            android:layout_height="@dimen/_42sdp"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/_35sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="@drawable/registration_br"
-                            android:text="Save" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                    android:id="@+id/tablayout_complain_viewpager" />
             </FrameLayout>
         </LinearLayout>
-    </ScrollView>
 </RelativeLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cmp_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/erroricon1"
+            android:background="@color/primaryTextColor"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+
+            android:text="Complain Details"
+            android:textColor="@color/whiteTextColor"
+            android:textSize="18sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/cm_status"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="Status"/>-->
+
+        <ImageView
+            android:id="@+id/cm_img"
+            android:scaleType="fitXY"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/building_details_image"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+            <TextView
+                android:id="@+id/flat_title"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:text="Complain  by :"/>
+            <TextView
+                android:id="@+id/cm_flat"
+                android:layout_toRightOf="@id/flat_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C-301"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:gravity="center"
+                />
+
+            <!--        <TextView-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Pending"-->
+            <!--            android:gravity="center"-->
+            <!--            />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complain :"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@id/flat_title"/>
+            <TextView
+                android:id="@+id/cm_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parking Problem"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_alignStart="@id/cm_flat"
+                android:layout_below="@id/flat_title"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/ee"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="Description :"/>
+            <TextView
+                android:id="@+id/cm_descr"
+                android:layout_toRightOf="@id/ee"
+                android:layout_width="wrap_content"
+                android:text="skfjehfanjndsjgdsn ds vsdngsgdsg sngksd gmsd gsngm s,d lg sdglksdg  l ndflsdnlfnsd flsdm fgdsnjf sdk f dsjf sd  f d f sd, f,ds ,n vbnfdghjfvbvgfgdfgdf df dfg dfg dfg dfg dfg dfg dfg dfg dfgfnd nf ,cvbnmsdgg lsf gn sfgfsn g fs"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

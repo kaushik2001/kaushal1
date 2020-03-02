@@ -33,6 +33,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.appsnipp.loginsamples.BottomNavigationBehaviour;
@@ -109,6 +110,7 @@ public class Navigation_Activity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
+
         NavigationUI.setupWithNavController(navigationView, navController);
 
         findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {

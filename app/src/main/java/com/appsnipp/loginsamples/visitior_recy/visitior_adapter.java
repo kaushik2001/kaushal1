@@ -34,23 +34,7 @@ public class visitior_adapter extends RecyclerView.Adapter<visitior_adapter.View
         ViewHolder viewHolder=new ViewHolder(itemview);
         mydialog =new Dialog(mcontext);
         mydialog.setContentView(R.layout.pop_layout_visit_details);
-        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                EditText di_exit=(EditText) mydialog.findViewById(R.id.pop_exit);
-                Button b=(Button)mydialog.findViewById(R.id.pop_ok);
-                String s=di_exit.getText().toString();
-                b.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        viewHolder.ve_exit.setText(di_exit.getText().toString());
-                        mydialog.dismiss();
-                    }
-                });
-                mydialog.show();
-                return false;
-            }
-        });
+
         return viewHolder;
     }
 

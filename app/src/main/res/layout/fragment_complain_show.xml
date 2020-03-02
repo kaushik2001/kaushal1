@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".complain_fragment.complain_showFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_complain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+            <android.support.v7.widget.RecyclerView
+                android:layoutAnimation="@anim/layout_anmimation_fall_down"
+                android:id="@+id/complainrecycle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

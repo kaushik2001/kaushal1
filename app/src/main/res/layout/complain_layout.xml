@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            app:cardElevation="5dp"
+            android:backgroundTint="@color/colorAccent"
+            app:cardCornerRadius="@dimen/_3sdp"
+
+
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/cmpr_flatno"
+                android:textSize="19sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/whiteTextColor"
+                android:layout_height="wrap_content"
+                android:text="Club House"/>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:backgroundTint="@color/whiteTextColor"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <FrameLayout
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/cmpr_img"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/club"
+                            android:layout_height="@dimen/_90sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="-10dp"
+
+                            android:scaleType="fitXY"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/member_name_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Title"
+
+                            android:textSize="13sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/cmpr_ttl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C/301 "
+                            android:layout_marginLeft="@dimen/_6sdp"
+                            android:textSize="13sp"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/member_status_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Status"
+
+                            android:textSize="13sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/cmpr_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C/301 "
+                            android:layout_marginLeft="@dimen/_6sdp"
+                            android:textSize="13sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textStyle="bold"
+                            android:text="Discription"
+
+                            android:textSize="13sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/cmpr_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Mokariya kaushik "
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textSize="13sp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -43,6 +43,7 @@
         <action
             android:id="@+id/action_nav_home_to_nav_member"
             app:destination="@id/nav_member" />
+
     </fragment>
     <fragment
         android:id="@+id/navB_home"
