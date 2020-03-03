@@ -4,6 +4,7 @@ import com.appsnipp.loginsamples.apiinterface.Paytm.Checksum;
 import com.appsnipp.loginsamples.apiinterface.responce.bill_child_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.bill_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.cmp_responce;
+import com.appsnipp.loginsamples.apiinterface.responce.document_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.event_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
 import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
@@ -190,4 +191,11 @@ public interface Api {
             @Field("complainuserdetail") String complainuserdetail,
             @Field("flatno") String flatno
     );
+
+    @FormUrlEncoded
+    @POST("documentapi.php")
+    Call<document_responce> documentdetailsl(
+            @Field("documentdetail") String documentdetail
+    );
+
 }

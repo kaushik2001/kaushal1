@@ -1,5 +1,7 @@
 package com.appsnipp.loginsamples.document_recycle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,16 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import com.appsnipp.loginsamples.R;
-import com.appsnipp.loginsamples.event_recycle_view.event_adapter;
-import com.appsnipp.loginsamples.event_recycle_view.event_data;
+import com.appsnipp.loginsamples.apiinterface.responce_get_set.document_get_set;
 
 import java.util.List;
 
 public class document_adapter extends RecyclerView.Adapter<document_adapter.ViewHolder> {
-    private List<documnet_data> documnet_data;
-    public document_adapter(List<documnet_data> documnetData){
+    private List<document_get_set> documnet_data;
+    Context mcontext;
+    public document_adapter(List<document_get_set> documnetData,Context mcontext){
         this.documnet_data= documnetData;
+        this.mcontext=mcontext;
     }
 
     @NonNull
@@ -25,14 +29,24 @@ public class document_adapter extends RecyclerView.Adapter<document_adapter.View
         View itemview= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.document_layout,null);
 
        ViewHolder viewHolder=new ViewHolder(itemview);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(mcontext, document_view.class);
+                i.putExtra("dec_name",documnet_data.get(viewHolder.getAdapterPosition()).getDocument_file());
+                mcontext.startActivity(i);
+
+            }
+        });
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull document_adapter.ViewHolder viewHolder, int i) {
-       documnet_data d=documnet_data.get(i);
+       document_get_set d=documnet_data.get(i);
 
-        viewHolder.dc_name.setText(d.pname);
+        viewHolder.dc_name.setText(d.getDocument_name());
     }
 
     @Override

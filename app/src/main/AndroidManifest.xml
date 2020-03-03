@@ -27,6 +27,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Otpverification.Forgotpassword_form" />
         <activity android:name=".Otpverification.Forgetpassword_otp" />
+        <activity android:name=".document_recycle.document_view"/>
         <activity android:name=".registration.password" />
         <activity
             android:name=".LoginActivity"
