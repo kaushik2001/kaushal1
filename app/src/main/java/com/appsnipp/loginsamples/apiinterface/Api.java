@@ -7,6 +7,7 @@ import com.appsnipp.loginsamples.apiinterface.responce.cmp_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.document_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.event_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
+import com.appsnipp.loginsamples.apiinterface.responce.mainte_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.notice_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.res_book_responce;
@@ -196,6 +197,23 @@ public interface Api {
     @POST("documentapi.php")
     Call<document_responce> documentdetailsl(
             @Field("documentdetail") String documentdetail
+    );
+
+
+    @FormUrlEncoded
+    @POST("maintence.php")
+    Call<mainte_responce> main_details(
+            @Field("mainjdetail") String mainjdetail,
+            @Field("flatno") String flatno
+    );
+
+    @FormUrlEncoded
+    @POST("maintence.php")
+    Call<CommanResponse> mainpay_entry(
+            @Field("mainpayentry") String mainpayentry,
+            @Field("mainteid") String mainteid,
+            @Field("billname") String billname,
+            @Field("flatno") String flatno
     );
 
 }
