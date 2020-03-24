@@ -16,6 +16,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -50,8 +51,18 @@ import com.appsnipp.loginsamples.Navigation_Profile.ui.members.MembersFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.electionandpoll.ElectionFragment;
 import com.appsnipp.loginsamples.Navigation_Profile.ui.visitor.VisitorFragment;
 import com.appsnipp.loginsamples.R;
+import com.appsnipp.loginsamples.apiinterface.Api;
+import com.appsnipp.loginsamples.apiinterface.ApiClient;
+import com.appsnipp.loginsamples.apiinterface.CommanResponse;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.lang.ref.WeakReference;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
@@ -82,6 +93,15 @@ public class Navigation_Activity extends AppCompatActivity {
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehaviour());
 
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(Navigation_Activity.this, new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String token = instanceIdResult.getToken();
+                Log.i("Token", token);
+                saveToken(token);
+            }
+        });
 
 
 
@@ -156,6 +176,22 @@ public class Navigation_Activity extends AppCompatActivity {
 
 
 
+    private void saveToken(String token) {
+
+        Api api= ApiClient.getClient().create(Api.class);
+        Call<CommanResponse> call =api.getFcm("fcm_tokenmember", token);
+        call.enqueue(new Callback<CommanResponse>() {
+            @Override
+            public void onResponse(Call<CommanResponse> call, Response<CommanResponse> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<CommanResponse> call, Throwable t) {
+
+            }
+        });
+    }
 
 
 }

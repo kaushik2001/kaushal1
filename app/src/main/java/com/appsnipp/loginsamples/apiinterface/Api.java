@@ -216,4 +216,11 @@ public interface Api {
             @Field("flatno") String flatno
     );
 
+    @FormUrlEncoded
+    @POST("fcm_insert.php")
+    Call<CommanResponse> getFcm(
+            @Field("fcm_tokenmember") String fcm_tokenmember,
+            @Field("fcm_token") String fcm_token
+    );
+
 }
