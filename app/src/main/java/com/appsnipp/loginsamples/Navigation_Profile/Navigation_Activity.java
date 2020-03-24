@@ -88,9 +88,9 @@ public class Navigation_Activity extends AppCompatActivity {
 
 
         //bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        bottomNavigationView.setSelectedItemId(R.id.navB_home);
+      //  bottomNavigationView.setSelectedItemId(R.id.navB_home);
         navigationView=findViewById(R.id.nav_view);
-        navigationView.setCheckedItem(R.id.nav_home);
+      //  navigationView.setCheckedItem(R.id.nav_home);
 
 
 
@@ -102,7 +102,7 @@ public class Navigation_Activity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_account, R.id.nav_member,
-                R.id.nav_election, R.id.nav_document, R.id.nav_resource, R.id.nav_complain,R.id.navB_home,R.id.navB_notice,
+                R.id.nav_election, R.id.nav_document, R.id.nav_resource, R.id.nav_complain,R.id.navB_notice,
                 R.id.navB_building,R.id.navB_profile,
                 R.id.nav_event,R.id.nav_visitor)
                 .setDrawerLayout(drawer)
@@ -141,16 +141,16 @@ public class Navigation_Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-  if(R.id.navB_home!=bottomNavigationView.getSelectedItemId()) {
-      bottomNavigationView.setSelectedItemId(R.id.navB_home);
-
-  }
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0 ) {
-            getSupportFragmentManager().popBackStackImmediate(0,FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }
-        else{
+//  if(R.id.navB_home!=bottomNavigationView.getSelectedItemId()) {
+//      bottomNavigationView.setSelectedItemId(R.id.navB_home);
+//
+//  }
+//        if (getSupportFragmentManager().getBackStackEntryCount() > 0 ) {
+//            getSupportFragmentManager().popBackStackImmediate(0,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+//        }
+//        else{
             super.onBackPressed();
-        }
+        //}
 //        super.onBackPressed();
     }
 
