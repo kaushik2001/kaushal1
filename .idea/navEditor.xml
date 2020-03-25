@@ -22,14 +22,7 @@
                   </entry>
                   <entry key="navB_home">
                     <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-212" />
-                            <option name="y" value="158" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
+                      <LayoutPositions />
                     </value>
                   </entry>
                   <entry key="navB_notice">

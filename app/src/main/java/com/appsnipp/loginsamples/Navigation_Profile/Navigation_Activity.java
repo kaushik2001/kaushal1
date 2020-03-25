@@ -179,7 +179,7 @@ public class Navigation_Activity extends AppCompatActivity {
     private void saveToken(String token) {
 
         Api api= ApiClient.getClient().create(Api.class);
-        Call<CommanResponse> call =api.getFcm("fcm_tokenmember", token);
+        Call<CommanResponse> call =api.getFcm(token,"fcm_info");
         call.enqueue(new Callback<CommanResponse>() {
             @Override
             public void onResponse(Call<CommanResponse> call, Response<CommanResponse> response) {
