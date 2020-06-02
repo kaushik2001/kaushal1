@@ -38,7 +38,7 @@
             android:layout_margin="@dimen/_10sdp">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/userIDTextInputEditText"
+                android:id="@+id/personal_fname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="First Name" />
@@ -53,7 +53,7 @@
             android:layout_margin="@dimen/_10sdp">
 
             <android.support.design.widget.TextInputEditText
-
+                android:id="@+id/personal_lname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Last Name" />
@@ -68,7 +68,7 @@
             android:layout_margin="@dimen/_10sdp">
 
             <android.support.design.widget.TextInputEditText
-
+                android:id="@+id/personal_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email" />
@@ -84,7 +84,7 @@
             android:layout_margin="@dimen/_10sdp">
 
             <android.support.design.widget.TextInputEditText
-
+                android:id="@+id/personal_mobno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mobile" />
@@ -93,6 +93,7 @@
 
 
         <Button
+            android:id="@+id/personal_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp"

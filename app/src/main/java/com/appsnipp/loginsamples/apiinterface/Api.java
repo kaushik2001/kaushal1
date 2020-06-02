@@ -10,6 +10,7 @@ import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
 import com.appsnipp.loginsamples.apiinterface.responce.mainte_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.member_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.notice_responce;
+import com.appsnipp.loginsamples.apiinterface.responce.prof_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.res_book_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.resource_responce;
 import com.appsnipp.loginsamples.apiinterface.responce.spnt_total_responce;
@@ -221,6 +222,46 @@ public interface Api {
     Call<CommanResponse> getFcm(
             @Field("fcm_token") String fcm_token,
             @Field("table") String table
+    );
+
+    @FormUrlEncoded
+    @POST("profileapi.php")
+    Call<loginresponce> personalupdate(
+
+            @Field("profilepersonal") String profilepersonal,
+            @Field("fname") String fname,
+            @Field("lname") String lname,
+            @Field("mobno") String mobno,
+            @Field("email") String email,
+            @Field("houseno") String houseno
+    );
+
+    @FormUrlEncoded
+    @POST("profileapi.php")
+    Call<prof_responce> profget(
+            @Field("profileprofget") String profileprofget,
+            @Field("houseno") String houseno
+    );
+
+    @FormUrlEncoded
+    @POST("profileapi.php")
+    Call<CommanResponse> profupdate(
+            @Field("profileprofupdate") String profileprofupdate,
+            @Field("emptype") String emptype,
+            @Field("proftype") String proftype,
+            @Field("cmpname") String cmpname,
+            @Field("desi") String desi,
+            @Field("conno") String conno,
+            @Field("houseno") String houseno
+    );
+
+    @FormUrlEncoded
+    @POST("profileapi.php")
+    Call<prof_responce> profpass(
+            @Field("profilepassupdate") String profilepassupdate,
+            @Field("mobno") String mobno,
+             @Field("oldpassword") String oldpassword,
+                    @Field("newpassword") String newpassword
     );
 
 }

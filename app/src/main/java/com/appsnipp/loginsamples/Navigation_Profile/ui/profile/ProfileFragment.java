@@ -42,6 +42,8 @@ import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LayoutAnimationController;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +52,11 @@ import com.appsnipp.loginsamples.BuildConfig;
 import com.appsnipp.loginsamples.LoginActivity;
 import com.appsnipp.loginsamples.Navigation_Profile.Navigation_Activity;
 import com.appsnipp.loginsamples.R;
+import com.appsnipp.loginsamples.apiinterface.Api;
+import com.appsnipp.loginsamples.apiinterface.ApiClient;
+import com.appsnipp.loginsamples.apiinterface.CommanResponse;
+import com.appsnipp.loginsamples.apiinterface.responce.loginresponce;
+import com.appsnipp.loginsamples.apiinterface.responce.prof_responce;
 import com.appsnipp.loginsamples.apiinterface.responce_get_set.User;
 import com.appsnipp.loginsamples.camera.FileCompressor;
 import com.appsnipp.loginsamples.profile.forgetpassword;
@@ -69,6 +76,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -123,6 +134,53 @@ public class ProfileFragment extends Fragment {
                 builder.setView(v);
                 builder.setCancelable(true);
                 AlertDialog alert=builder.create();
+
+                User user= sareprefrencelogin.getInstance(getContext()).getuser();
+//                String fname=user.getFname();
+//                String lname=user.getLname();
+//                String email=user.getEmail()+" ";
+//                String mob=user.getMobno();
+
+                EditText ecpass,enewpass,ecnewpass;
+                Button save;
+                ecpass=v.findViewById(R.id.chngopass);
+                enewpass=v.findViewById(R.id.chngnpass);
+                ecnewpass=v.findViewById(R.id.chngchecknpass);
+
+                save=v.findViewById(R.id.savebtn_change);
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (enewpass.getText().toString().equals(ecnewpass.getText().toString())) {
+                            Api api = ApiClient.getClient().create(Api.class);
+
+                            Call<prof_responce> call = api.profpass("profilepersonal", user.getMobno() + "",
+                                    ecpass.getText()+"",
+                                    enewpass.getText()+"");
+                            call.enqueue(new Callback<prof_responce>() {
+                                @Override
+                                public void onResponse(Call<prof_responce> call, Response<prof_responce> response) {
+                                    if (response.body().getSuccess()==200) {
+                                        Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+                                        alert.dismiss();
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<prof_responce> call, Throwable t) {
+                                    Toast.makeText(getContext(), t.getLocalizedMessage()+"", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else {
+                            ecnewpass.setError("Password Doesn`t Match");
+                        }
+                    }
+                });
 
                 //alert.dismiss();
                 alert.show();
@@ -194,8 +252,64 @@ public class ProfileFragment extends Fragment {
                 builder.setView(v);
                 builder.setCancelable(true);
                 AlertDialog alert=builder.create();
+                User user= sareprefrencelogin.getInstance(getContext()).getuser();
+                String fname=user.getFname();
+                String lname=user.getLname();
+                String email=user.getEmail()+" ";
+                String mob=user.getMobno();
 
-                //alert.dismiss();
+                EditText efname,elname,eemail,emobno;
+                Button save;
+                efname=v.findViewById(R.id.personal_fname);
+                elname=v.findViewById(R.id.personal_lname);
+                eemail=v.findViewById(R.id.personal_email);
+                emobno=v.findViewById(R.id.personal_mobno);
+                save=v.findViewById(R.id.personal_save);
+
+                efname.setText(fname);
+                elname.setText(lname);
+                eemail.setText(email);
+                emobno.setText(mob);
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Api api = ApiClient.getClient().create(Api.class);
+                        Call<loginresponce> call=api.personalupdate("profilepersonal",
+                                efname.getText()+"",
+                                elname.getText()+"",
+                                emobno.getText()+"",
+                                eemail.getText()+"",
+                                user.getHouseno()+"");
+                        call.enqueue(new Callback<loginresponce>() {
+                            @Override
+                            public void onResponse(Call<loginresponce> call, Response<loginresponce> response) {
+                                if (response.body().getSuccess()==200) {
+                                    loginresponce loginresponce=response.body();
+                                    sareprefrencelogin.getInstance(getContext()).saveuser(loginresponce.getUser());
+                                    Intent i = new Intent(getContext(), Navigation_Activity.class);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(i);
+                                    Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getContext(), response.body().getMessage()+"", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<loginresponce> call, Throwable t) {
+                                Toast.makeText(getContext(), t.getLocalizedMessage()+"", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+                        alert.dismiss();
+                    }
+                });
+
                 alert.show();
             }
         });
@@ -210,6 +324,74 @@ public class ProfileFragment extends Fragment {
                 builder.setView(v);
                 builder.setCancelable(true);
                 AlertDialog alert=builder.create();
+                User user= sareprefrencelogin.getInstance(getContext()).getuser();
+//                String fname=user.getFname();
+//                String lname=user.getLname();
+//                String email=user.getEmail()+" ";
+//                String mob=user.getMobno();
+
+                EditText eempt,eproft,ecmpname,edesig,ecno;
+                Button save;
+                eempt=v.findViewById(R.id.prof_emptype);
+                eproft=v.findViewById(R.id.prof_proftype);
+                ecmpname=v.findViewById(R.id.prof_cmpname);
+                edesig=v.findViewById(R.id.prof_desig);
+                ecno=v.findViewById(R.id.prof_cno);
+                save=v.findViewById(R.id.prof_save);
+
+
+                Api api = ApiClient.getClient().create(Api.class);
+                Call<prof_responce> call=api.profget("profilepersonal", user.getHouseno()+"");
+                call.enqueue(new Callback<prof_responce>() {
+                    @Override
+                    public void onResponse(Call<prof_responce> call, Response<prof_responce> response) {
+                        if(response.body().getSuccess()==200){
+                            eempt.setText(response.body().getDe().get(0).getEmptype()+"");
+                            eproft.setText(response.body().getDe().get(0).getProftype()+"");
+                            ecmpname.setText(response.body().getDe().get(0).getCmpname()+"");
+                            edesig.setText(response.body().getDe().get(0).getDesi()+"");
+                            ecno.setText(response.body().getDe().get(0).getConno()+"");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<prof_responce> call, Throwable t) {
+
+                    }
+                });
+
+
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Api api = ApiClient.getClient().create(Api.class);
+                        Call<CommanResponse> call=api.profupdate("profilepersonal",
+                                eempt.getText()+"",
+                                eproft.getText()+"",
+                                ecmpname.getText()+"",
+                                edesig.getText()+"",
+                                ecno.getText()+"",
+                                user.getHouseno()+"");
+                        call.enqueue(new Callback<CommanResponse>() {
+                            @Override
+                            public void onResponse(Call<CommanResponse> call, Response<CommanResponse> response) {
+                                if (response.body().getSuccess()==200){
+                                    Toast.makeText(getContext(), "Updated Sucessfully", Toast.LENGTH_SHORT).show();
+                                }else
+                                    Toast.makeText(getContext(), "Some error occured", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<CommanResponse> call, Throwable t) {
+                                Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        alert.dismiss();
+                    }
+                });
+
 
                 //alert.dismiss();
                 alert.show();

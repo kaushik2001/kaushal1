@@ -69,8 +69,9 @@ public class bill_adapter extends RecyclerView.Adapter<bill_adapter.ViewHolder>{
 
         String r=""+bill_data.get(i).getId();
         String r2=""+bill_data.get(i).getTotalamt();
-        loadspent(r,viewHolder);
-        spntdue(r,r2,viewHolder);
+
+       loadspent(r,viewHolder);
+      spntdue(r,r2,viewHolder);
 
 
 
