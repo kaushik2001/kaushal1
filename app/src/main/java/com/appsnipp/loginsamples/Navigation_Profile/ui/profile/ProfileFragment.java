@@ -183,6 +183,7 @@ public class ProfileFragment extends Fragment {
                 });
 
                 //alert.dismiss();
+
                 alert.show();
 
             }
